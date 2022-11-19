@@ -61,6 +61,30 @@ app.get('/', function (req, res) {
  
  })
 
+ app.get('/start', function (req, res) {
+    fs.readFile('data.json', 'utf8', function (err, datastring) {
+    let data= JSON.parse(datastring)
+    console.log(req.session)
+    if (!req.session.vis)
+    req.session.vis = 1;
+    else 
+    req.session.vis++;
+   
+    data.vis = req.session.vis;
+   
+    res.render("start.ejs", data)
+    data.visit++;
+    const datastring2= JSON.stringify(data)
+    fs.writeFile('data.json', datastring2, err => {
+    if (err) {
+    throw err
+    }
+    console.log('JSON data is saved.')
+    })
+    }); 
+    
+    })
+
  app.listen(port, () => {
  console.log(`Now listening on port ${port}`);
 });
