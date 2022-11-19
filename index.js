@@ -6,6 +6,10 @@ const session = require('express-session')
 
 const app = express(); //Instantiate an express app, the main work horse of this server
 const port = 8080; //Save the port number where your server will be listening
+const path = require('path')
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')))
+app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 app.use(session({ secret: 'keybo#$%SFTHHET@#436tihuard cat', cookie: { maxAge: 60*60*24*1000 }}))
 // to make session user variable available everywhere
