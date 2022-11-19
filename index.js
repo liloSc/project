@@ -48,7 +48,7 @@ app.get('/', function (req, res) {
 
  data.vis = req.session.vis;
 
- res.render("index.ejs", data)
+ res.render("login.ejs", data)
  data.visit++;
  const datastring2= JSON.stringify(data)
  fs.writeFile('data.json', datastring2, err => {
