@@ -15,14 +15,6 @@ body {
   height: calc(100vh - 20px);
 }
 
-#header {
-  background: #167d7f;
-  color: #fff;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: auto 200px;
-  text-align: center;
-}
 
 #login-content {
   width: 500px;
@@ -72,3 +64,30 @@ body {
 #map {
   height: 500px;
 }
+
+.list-items img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+  margin-right: 30px;
+}
+
+.list-items h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+.section{
+
+display: flex;
+padding: 20px;
+width: 60%;
+
+}
+
+.section img{
+  margin-right: 30px;
+  
+  }

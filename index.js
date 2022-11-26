@@ -1,4 +1,4 @@
-const express = require('express'); //Import the express dependency
+/*const express = require('express'); //Import the express dependency
 const ejs = require('ejs');
 const fs = require('fs');
 const session = require('express-session')
@@ -87,4 +87,4 @@ app.get('/start', function (req, res) {
 
 app.listen(port, () => {
   console.log(`Now listening on port ${port}`);
-});
+});*/
