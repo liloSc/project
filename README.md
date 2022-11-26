@@ -49,3 +49,6 @@ After starting, it should look like this:
 
 # Credits
 -
+
+## Resources
+https://de.freepik.com/vektoren-kostenlos/pariser-konzeptillustration_9786868.htm#page=2&query=Paris&position=12&from_view=search&track=sph
