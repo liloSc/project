@@ -3,15 +3,6 @@ body {
   height: 100%
 }
 
-#loginbox {
-/*  border: 1px solid grey;
-  padding: 10px;
-  border-radius: 6px;
-  background: rgb(249, 249, 249);
-  background: linear-gradient(-45deg, rgba(249, 249, 249, 1) 0%, rgba(211, 208, 242, 1) 50%, rgba(225, 250, 255, 1) 100%);
- box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.5);*/ 
-}
-
 * {
   box-sizing: border-box;
 }
@@ -32,7 +23,8 @@ body {
   grid-template-columns: auto 200px;
   text-align: center;
 }
-#login-content{
+
+#login-content {
   width: 500px;
   margin: auto;
 }
@@ -41,12 +33,11 @@ body {
   background: #fff;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
- 
+
 }
 
-
-.form-inline .form-control{
-  width:600px;
+.form-inline .form-control {
+  width: 600px;
 }
 
 #content-center {

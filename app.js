@@ -11,10 +11,10 @@ const port = 8080;                  //Save the port number where your server wil
 const sessions = require('express-session');
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
-    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-    saveUninitialized:true,
-    cookie: { maxAge: oneDay },
-    resave: false 
+  secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+  saveUninitialized: true,
+  cookie: { maxAge: oneDay },
+  resave: false
 }));
 
 
@@ -22,7 +22,7 @@ app.use(sessions({
 var session;
 
 // to make session user variable available everywhere
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.user = req.session.user;
   next();
 });
@@ -64,20 +64,20 @@ app.set('layout', './layouts/base-layout.ejs')
 
 // MAIN
 app.get('', (req, res) => {
-  session=req.session;
-    if(session.userid){
-      res.render("index.ejs", {'userid':session.userid, 'username': session.username})
-    }else
-      res.sendFile('views/login.html',{root:__dirname})
+  session = req.session;
+  if (session.userid) {
+    res.render("index.ejs", { 'userid': session.userid, 'username': session.username })
+  } else
+    res.sendFile('views/login.html', { root: __dirname })
 })
 
 app.get('/vis', function (req, res) {
-  session=req.session;
-  if(session.userid){
+  session = req.session;
+  if (session.userid) {
     console.log(session.userid)
-    res.render("vis.ejs", {'userid':session.userid, 'username': session.username})
+    res.render("vis.ejs", { 'userid': session.userid, 'username': session.username })
   } else
-    res.sendFile('views/login.html',{root:__dirname})
+    res.sendFile('views/login.html', { root: __dirname })
 })
 
 
@@ -92,5 +92,5 @@ app.use(visPathRoutes);
 /*********************************/
 
 app.listen(port, () => {
-    console.log(`Now listening on port ${port}`);
+  console.log(`Now listening on port ${port}`);
 });
