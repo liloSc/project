@@ -2,7 +2,8 @@
 ## (Intro)
 The goal of the application is to facilitate the exploration of a new city. 
 
-## Rules
+## Mockup
+https://www.figma.com/file/6nMtKI3g93o8Li40E2X98k/WebDevProject?node-id=0%3A1&t=BInmQ5cbmZhQSk63-1
 
 
 ## Installation
