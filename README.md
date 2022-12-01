@@ -11,6 +11,9 @@ https://www.figma.com/file/6nMtKI3g93o8Li40E2X98k/WebDevProject?node-id=0%3A1&t=
 ```bash
 https://github.com/liloSc/webdevproject.git
 ```
+npm install
+node app.js 
+
 
 
 After starting, it should look like this: 
@@ -52,3 +55,4 @@ After starting, it should look like this:
 
 ## Resources
 https://de.freepik.com/vektoren-kostenlos/pariser-konzeptillustration_9786868.htm#page=2&query=Paris&position=12&from_view=search&track=sph
+https://www.pexels.com/video/a-view-of-hot-air-balloons-in-the-air-and-woman-riding-her-vehicle-3015510/

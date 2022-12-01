@@ -71,15 +71,32 @@ app.get('', (req, res) => {
     res.sendFile('views/login.html', { root: __dirname })
 })
 
-app.get('/vis', function (req, res) {
+app.get('/map', function (req, res) {
   session = req.session;
   if (session.userid) {
     console.log(session.userid)
-    res.render("vis.ejs", { 'userid': session.userid, 'username': session.username })
+    res.render("map.ejs", { 'userid': session.userid, 'username': session.username })
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
 
+app.get('/cities', function (req, res) {
+  session = req.session;
+  if (session.userid) {
+    console.log(session.userid)
+    res.render("cities.ejs", { 'userid': session.userid, 'username': session.username })
+  } else
+    res.sendFile('views/login.html', { root: __dirname })
+})
+
+app.get('/city', function (req, res) {
+  session = req.session;
+  if (session.userid) {
+    console.log(session.userid)
+    res.render("city.ejs", { 'userid': session.userid, 'username': session.username })
+  } else
+    res.sendFile('views/login.html', { root: __dirname })
+})
 
 const userRoutes = require('./routes/user')
 app.use(userRoutes);

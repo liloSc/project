@@ -1,6 +1,8 @@
 users = [
     { userid: 'fred@fred.com', password: '1234', username: 'fred' },
     { userid: 'vane@vane.com', password: '1234', username: 'vane' },
+    { userid: 'alexander@alexander.com', password: '1234', username: 'alexander' },
+    { userid: 'lilo@lilo.com', password: '1234', username: 'lilo' },
 ]
 
 
