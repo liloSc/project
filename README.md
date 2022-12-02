@@ -19,6 +19,14 @@ node app.js
 After starting, it should look like this: 
 [Insert Screenshot]
 
+## On phone
+https://prowe214.medium.com/tip-how-to-view-localhost-web-apps-on-your-phone-ad6b2c883a7c
+1. Make sure Smartphone and Laptop are in same WIFI
+2. Search for IP Adress of Laptop (For Mac: System Preferences> Network)
+3. Start app with node app.js on your laptop (note the port)
+4. Open Browser on Smartphone: "<IPADRESS from Laptop>:<Portnumer>"
+5. Now you should see the Page on your Smartphone
+
 ## Basic Gameplay
 
 
