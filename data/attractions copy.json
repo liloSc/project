@@ -1,0 +1,77 @@
+[
+  {
+    "userid": "lilo@lilo.com",
+    "countries": {
+      "france": {
+        "cities": {
+          "Paris": {
+            "TourEiffel": "yes",
+            "ArcDeTriomphe": "yes",
+            "Louvre": "yes"
+          }
+        }
+      },
+      "germany": {
+        "cities": {
+          "Berlin": {
+            "TourEiffel": "no",
+            "ArcDeTriomphe": "no",
+            "Louvre": "no"
+          }
+        }
+      }
+    }
+  },
+  {
+    "userid": "lilo2@lilo.com",
+    "Paris": {
+      "TourEiffel": "yes",
+      "ArcDeTriomphe": "no",
+      "Louvre": "no"
+    },
+    "Berlin": {
+      "TourEiffel": "yes",
+      "ArcDeTriomphe": "no",
+      "Louvre": "no"
+    }
+  },
+  {
+    "userid": "alex@alex.com",
+    "Paris": {
+      "TourEiffel": "no",
+      "ArcDeTriomphe": "no",
+      "Louvre": "yes"
+    },
+    "Berlin": {
+      "TourEiffel": "no",
+      "ArcDeTriomphe": "no",
+      "Louvre": "yes"
+    }
+  },
+  {
+    "userid": "fred@fred.com",
+    "Paris": {
+      "TourEiffel": "no",
+      "ArcDeTriomphe": "no",
+      "Louvre": "yes"
+    },
+    "Berlin": {
+      "TourEiffel": "no",
+      "ArcDeTriomphe": "no",
+      "Louvre": "yes"
+    }
+  },
+  {
+    "userid": "vane@vane.com",
+    "Paris": {
+      "TourEiffel": "no",
+      "ArcDeTriomphe": "no",
+      "Louvre": "yes"
+    },
+    "Berlin": {
+      "TourEiffel": "no",
+      "ArcDeTriomphe": "no",
+      "Louvre": "yes"
+    }
+  }
+]

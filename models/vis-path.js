@@ -1,7 +1,6 @@
 
 const User = require('./user')
 
-
 module.exports = class VisPath {
     static getPath = function (userid) {
         if (User.existsUserid(userid)) {

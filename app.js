@@ -1,5 +1,6 @@
 const express = require('express'); //Import the express dependency
-const path = require('path')
+const path = require('path');
+const fs = require('fs');
 const expressLayouts = require('express-ejs-layouts') // Import express layouts 
 const app = express();              //Instantiate an express app, the main work horse of this server
 const port = 8080;                  //Save the port number where your server will be listening
@@ -63,13 +64,43 @@ app.set('layout', './layouts/base-layout.ejs')
 /*********************************/
 
 // MAIN
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
   session = req.session;
   if (session.userid) {
     res.render("index.ejs", { 'userid': session.userid, 'username': session.username })
+    //Read File
+    console.log("Here comes the data");
+    /*fs.readFile('data.json', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(data);
+    });*/
+    fs.readFile('data.json', 'utf8', function (err, datastring) {
+      let data = JSON.parse(datastring)
+      console.log(req.session)
+      if (!req.session.vis)
+        req.session.vis = 1;
+      else
+        req.session.vis++;
+
+      data.vis = req.session.vis;
+      ///Users/liloschulz/Master/WebDev/webdevproject/views/index.ejs
+      //  res.render("index.ejs", data)
+      data.visit++;
+      const datastring2 = JSON.stringify(data)
+      fs.writeFile('data.json', datastring2, err => {
+        if (err) {
+          throw err
+        }
+        console.log('JSON data is saved.')
+      })
+    });
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
+
 
 app.get('/map', function (req, res) {
   session = req.session;
@@ -85,6 +116,39 @@ app.get('/cities', function (req, res) {
   if (session.userid) {
     console.log(session.userid)
     res.render("cities.ejs", { 'userid': session.userid, 'username': session.username })
+  } else
+    res.sendFile('views/login.html', { root: __dirname })
+})
+
+
+var listCities = ["Paris", "Berlin"];
+var listattractions=["attraction1", "attraction2","attraction3"];
+app.get('/my-cities', function (req, res) {
+  session = req.session;
+  if (session.userid) {
+    console.log(session.userid)
+    res.render("my-cities.ejs", { 'userid': session.userid, 'username': session.username })
+   /* fs.readFile('./data/attractions.json', 'utf8', function (err, datastring) {
+      let data = JSON.parse(datastring)
+      data.forEach(d => {
+        if (d.userid == session.userid) {
+          //   console.log(d.userid+ " "+d.Paris.TourEiffel)
+          //  console.log(d.userid+ " "+d.countries.france.cities.Paris.TourEiffel)
+          //  console.log(d.userid+ " "+d["countries"]["france"]["cities"]["Paris"]["TourEiffel"])
+          listCities.forEach(c => {
+            listattractions.forEach(a => {
+            console.log(d.userid + " " + c + " " + d["cities"][c][a]["name"]+ " " + d["cities"][c][a]["visited"])
+            })
+          }
+          )
+
+        }
+      });
+
+
+    });*/
+
+
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })

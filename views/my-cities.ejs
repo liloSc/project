@@ -1,0 +1,50 @@
+<h2>The Attractions I have been to:</h2>
+<!--<script src="/js/get-cities.js"></script>
+-->
+<div id="myData"></div>
+
+<script>
+    var listCities = ["Paris", "Berlin"];
+    var listattractions = ["attraction1", "attraction2", "attraction3"];
+
+    fetch('/data/attractions.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
+    function appendData(data) {
+        var mainContainer = document.getElementById("myData");
+        data.forEach(d => {
+            //   if (d.userid == userid) {
+            listCities.forEach(c => {
+                var divCity = document.createElement("h3");
+                divCity.innerHTML = c;
+
+                mainContainer.appendChild(divCity);
+                listattractions.forEach(a => {
+                    var divAttraction = document.createElement("div");
+                    divAttraction.innerHTML = d["cities"][c][a]["name"] + ": " + d["cities"][c][a]["visited"];
+
+                    mainContainer.appendChild(divAttraction);
+                })
+            }
+            )
+
+            //  }
+        })
+
+
+        /*  for (var i = 0; i < data.length; i++) {
+              var div = document.createElement("div");
+              //   div.innerHTML = 'Name: ' + data[i].firstName + ' ' + data[i].lastName;
+              div.innerHTML = data[i]["cities"]["Paris"]["attraction1"]["name"] + ": " + data[i]["cities"]["Paris"]["attraction1"]["visited"];
+  
+              mainContainer.appendChild(div);
+          }*/
+    }
+</script>
