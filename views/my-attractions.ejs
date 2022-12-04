@@ -33,11 +33,16 @@
                     mainContainer.appendChild(divAttraction);
                     var button = document.createElement("button");
                     button.id = c + "_" + d["cities"][c][a]["name"].replaceAll(" ", "");
-                    button.innerHTML = "Check";
+                    button.innerHTML = "Change";
                     button.setAttribute(
                         'style',
                         'background-color: blue; color: white; width: 100px; ',
                     );
+                    //TODO: Implement Functionality, that when button is pressed, the visit attribute changes --> JSON File gets overwritten
+                    button.onclick = function () {
+                        alert('here be dragons');
+                        return false;
+                    };
                     mainContainer.appendChild(button);
                 })
             }
