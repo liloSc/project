@@ -123,11 +123,11 @@ app.get('/cities', function (req, res) {
 
 var listCities = ["Paris", "Berlin"];
 var listattractions=["attraction1", "attraction2","attraction3"];
-app.get('/my-cities', function (req, res) {
+app.get('/my-attractions', function (req, res) {
   session = req.session;
   if (session.userid) {
     console.log(session.userid)
-    res.render("my-cities.ejs", { 'userid': session.userid, 'username': session.username })
+    res.render("my-attractions.ejs", { 'userid': session.userid, 'username': session.username })
    /* fs.readFile('./data/attractions.json', 'utf8', function (err, datastring) {
       let data = JSON.parse(datastring)
       data.forEach(d => {

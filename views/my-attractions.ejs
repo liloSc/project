@@ -20,6 +20,7 @@
     function appendData(data) {
         var mainContainer = document.getElementById("myData");
         data.forEach(d => {
+            //TODO: Only the user, how to get current userid??
             //   if (d.userid == userid) {
             listCities.forEach(c => {
                 var divCity = document.createElement("h3");
@@ -29,8 +30,15 @@
                 listattractions.forEach(a => {
                     var divAttraction = document.createElement("div");
                     divAttraction.innerHTML = d["cities"][c][a]["name"] + ": " + d["cities"][c][a]["visited"];
-
                     mainContainer.appendChild(divAttraction);
+                    var button = document.createElement("button");
+                    button.id = c + "_" + d["cities"][c][a]["name"].replaceAll(" ", "");
+                    button.innerHTML = "Check";
+                    button.setAttribute(
+                        'style',
+                        'background-color: blue; color: white; width: 100px; ',
+                    );
+                    mainContainer.appendChild(button);
                 })
             }
             )
