@@ -64,7 +64,34 @@ app.set('layout', './layouts/base-layout.ejs')
 /*********************************/
 
 // MAIN
-app.get('/', (req, res) => {
+  app.get('/saveData', (req, res) => {
+  
+  //  console.log(req.query.data)
+  // const datatoString = JSON.stringify(req._parsedOriginalUrl.query);
+  
+  //TODO: Is there any better way to get rid of the %22 or %20 after transforming the data?
+  var datatoString =req._parsedOriginalUrl.query;
+ 
+ //  var datatoString = JSON.stringify(req._parsedOriginalUrl.query);
+   console.log(datatoString) ;
+   datatoString.replaceAll("\"","\'");
+   datatoString =datatoString.replaceAll("%22","\"");
+   datatoString = datatoString.replaceAll("%20"," ");
+ //  console.log(datatoString) ;
+   fs.writeFile('./data/attractions.json', datatoString, err => {
+      if (err) {
+          throw err;
+      } else {
+          console.log('JSON String is saved')
+         // res.render("my-attractions.ejs",datatoString);
+      }
+  })
+ // res.render("my-attractions.ejs", { 'userid': session.userid, 'username': session.username })
+  
+ // location.reload;
+
+  })
+  app.get('/', (req, res) => {
   session = req.session;
   if (session.userid) {
     res.render("index.ejs", { 'userid': session.userid, 'username': session.username })
@@ -89,8 +116,8 @@ app.get('/', (req, res) => {
       ///Users/liloschulz/Master/WebDev/webdevproject/views/index.ejs
       //  res.render("index.ejs", data)
       data.visit++;
-      const datastring2 = JSON.stringify(data)
-      fs.writeFile('data.json', datastring2, err => {
+    //  const datastring2 = JSON.stringify(data)
+      fs.writeFile('data.json', data, err => {
         if (err) {
           throw err
         }
