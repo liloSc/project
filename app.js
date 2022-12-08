@@ -73,8 +73,7 @@ app.set('layout', './layouts/base-layout.ejs')
   var datatoString =req._parsedOriginalUrl.query;
  
  //  var datatoString = JSON.stringify(req._parsedOriginalUrl.query);
-   console.log(datatoString) ;
-   datatoString.replaceAll("\"","\'");
+ //  console.log(datatoString) ;
    datatoString =datatoString.replaceAll("%22","\"");
    datatoString = datatoString.replaceAll("%20"," ");
  //  console.log(datatoString) ;
@@ -86,8 +85,7 @@ app.set('layout', './layouts/base-layout.ejs')
          // res.render("my-attractions.ejs",datatoString);
       }
   })
- // res.render("my-attractions.ejs", { 'userid': session.userid, 'username': session.username })
-  
+ 
  // location.reload;
 
   })

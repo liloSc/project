@@ -108,11 +108,13 @@ function saveData(data) {
 
     }).done(function (Response) {
         console.log(Response)
+      
 
     })
         .fail(function (Response) {
             console.log(Response)
         });
+        document.location.reload(true)
 }
 
 function changeData(data, e) {
