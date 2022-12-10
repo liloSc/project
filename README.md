@@ -1,4 +1,4 @@
-# DiscoverMe
+# Discover
 ## (Intro)
 The goal of the application is to facilitate the exploration of a new city. 
 
