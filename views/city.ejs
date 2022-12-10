@@ -1,29 +1,53 @@
-<!--First Item-->
-
-<div class="section">
-
-
-    <img src="../resources/paris.jpg" alt="Paris" style="width:100px;height:auto;border-radius: 50%;">
-
-    <div class="text">
-        <h3 id="place"></h3>
-        <div class="progress" style="width: 200px;height:5px">
-            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                aria-valuemax="100"></div>
+<div style="margin:20px">
+    <div class="section">
+        <img src="../resources/paris.jpg" alt="Paris" style="width:200px;height:auto;border-radius: 50%;">
+        <div class="text">
+            <h3 style=" font-size: 2em; font-weight: bold;" id="place"></h3>
+            <div class="progress" style="width: 200px;height:5px">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+            </div>
+            <p>2/10</p>
         </div>
-        <p>2/10</p>
+        <script>
+            // Adapted from examples on the Querystring homepage.
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const place = urlParams.get('place')
+            console.log("PLACE IS" + place);
+            document.getElementById('place').innerHTML = place;
+        </script>
     </div>
-    <script>
-        // Adapted from examples on the Querystring homepage.
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        const place = urlParams.get('place')
 
-        console.log("PLACE IS" + place);
-        //   let d = new Date();
-        //  alert("Today's date is " + v1);
-        //   console.log("PLACE IS");
-        //  alert("Today's date is ");
-        document.getElementById('place').innerHTML = place;
-    </script>
+    <!-- <i class="material-symbols-rounded" style="padding-left:20px;font-size: 2em;color:green ">check_circle</i>
+    <i class="material-symbols-outlined" style="padding-left:20px;font-size: 2em;color:grey ">circle</i>
+-->
+    <div style="margin-left: 40px;">Attractions:</div>
+    <!--<script src="/js/get-cities.js"></script>
+-->
+<div id="myData">
+  <!--  <div style=" clear:both; ">
+        <div style="float:left; ">
+            <i class="material-symbols-outlined" style="font-size: 2em;color:grey ">circle</i>
+        </div>
+        <div style=" float:left; margin-left:10px;font-size: 20px;">
+            First DIV
+        </div>
+    </div>
+   
+    <div style=" clear:both; ">
+        <div style="float:left; ">
+            <i class="material-symbols-outlined" style="font-size: 2em;color:grey ">circle</i>
+        </div>
+        <div style=" float:left;  margin-left:10px;font-size: 20px">
+            Second DIV
+        </div>
+    </div>
+-->
+
+
+    <!--  <button id="testWriting"></button>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="./js/get-attractions.js"></script>
 </div>

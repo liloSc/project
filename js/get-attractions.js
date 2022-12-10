@@ -14,7 +14,143 @@ fetch('/data/attractions.json')
         console.log('error: ' + err);
     });
 
-function appendData(data) {
+    function appendData(data) {
+        var mainContainer = document.getElementById("myData");
+        var index = 0;
+        data.forEach(d => {
+            listCities.forEach(c => {
+                if(c==document.getElementById("place").innerHTML)
+                listattractions.forEach(a => {
+                  
+                    var divAttraction = document.createElement("div");
+                    divAttraction.setAttribute(
+                        'style',
+                        'clear:both;',
+                    );
+                   
+                    var divIcon = document.createElement("div");
+                    divIcon.setAttribute(
+                        'style',
+                        'float:left;',
+                    );
+                    var icon= document.createElement("i");
+                    if(d["cities"][c][a]["visited"]=="yes"){ icon.innerHTML="check_circle";
+                    icon.setAttribute(
+                        'style',
+                        'font-size: 2em;color:green',
+                    );
+                    icon.setAttribute(
+                        'class',
+                        'material-symbols-rounded',
+                    );}
+                    else  if(d["cities"][c][a]["visited"]=="no"){ 
+                        icon.innerHTML="circle";
+                    icon.setAttribute(
+                        'style',
+                        'font-size: 2em;color:grey',
+                    );
+                    icon.setAttribute(
+                        'class',
+                        'material-symbols-outlined',
+                    );}
+                   
+                   
+                   
+                    divIcon.appendChild(icon);
+                    divAttraction.appendChild(divIcon);
+                    var divText = document.createElement("div");
+                    
+                    divText.setAttribute(
+                        'style',
+                        'float:left; margin-left:10px;font-size: 20px; ',
+                    );
+                    divText.innerHTML=d["cities"][c][a]["name"];
+                    divAttraction.appendChild(divText);
+                    
+                    mainContainer.appendChild(divAttraction);
+
+                })
+            })
+
+
+        })
+
+       
+      /*  var mainContainer = document.getElementById("myData");
+        var index = 0;
+        data.forEach(d => {
+            //TODO: Only the user, how to get current userid??
+            //   if (d.userid == userid) {
+            listCities.forEach(c => {
+                var divCity = document.createElement("h3");
+                divCity.innerHTML = c;
+                var divAttraction1 = document.createElement("div");
+    
+    /*Status */
+    /*divAttraction1.appendChild(divCity);
+                listattractions.forEach(a => {
+                    var status = document.createElement("i");
+                    if(d["cities"][c][a]["visited"]=="yes"){
+                        status.innerHTML="check_circle";
+                        status.setAttribute(
+                            'style',
+                            'font-size: 2em;color:green',
+                        );
+                        status.setAttribute(
+                            'class',
+                            'material-symbols-rounded',
+                        );
+                    }else if(d["cities"][c][a]["visited"]=="no"){
+                        status.innerHTML="circle";
+                        status.setAttribute(
+                            'style',
+                            'font-size: 2em;color:grey',
+                        );
+                        status.setAttribute(
+                            'class',
+                            'material-symbols-outlined',
+                        );
+                    }
+                    mainContainer.appendChild(status);
+
+
+/* Attraction name*/
+
+
+                /*    var divAttraction = document.createElement("div");
+                    divAttraction.innerHTML = d["cities"][c][a]["name"] + ": " + d["cities"][c][a]["visited"];
+                    mainContainer.appendChild(divAttraction);
+                
+                    var button = document.createElement("button");
+                    button.id = c + "_" + d["cities"][c][a]["name"].replaceAll(" ", "");
+                    button.id = index;
+    
+                    button.innerHTML = "Change";
+                    button.setAttribute(
+                        'style',
+                        'background-color: blue; color: white; width: 100px; ',
+                    );
+                    //   var testdata="testliloClick";
+                    //TODO: Implement Functionality, that when button is pressed, the visit attribute changes --> JSON File gets overwritten
+                    button.onclick = function (id) {
+                        changeData(data, id);
+    
+                    }
+                  
+                    mainContainer.appendChild(button);
+                 
+                    index++;
+                });
+            }
+            )
+    
+            //  }
+        })
+    
+    */
+      
+    }  
+function appendDataArchive(data) {
     //  const datatoString = JSON.stringify(data);
     //  console.log(datatoString);
     //  console.log("data " + JSON.stringify(data));
@@ -81,6 +217,29 @@ function appendData(data) {
                 //  return false;
                 //  };
                 mainContainer.appendChild(button);
+                var status = document.createElement("i");
+                if(d["cities"][c][a]["visited"]=="yes"){
+                    status.innerHTML="check_circle";
+                    status.setAttribute(
+                        'style',
+                        'font-size: 2em;color:green',
+                    );
+                    status.setAttribute(
+                        'class',
+                        'material-symbols-rounded',
+                    );
+                }else if(d["cities"][c][a]["visited"]=="no"){
+                    status.innerHTML="circle";
+                    status.setAttribute(
+                        'style',
+                        'font-size: 2em;color:grey',
+                    );
+                    status.setAttribute(
+                        'class',
+                        'material-symbols-outlined',
+                    );
+                }
+                mainContainer.appendChild(status);
                 index++;
             });
         }
@@ -108,13 +267,13 @@ function saveData(data) {
 
     }).done(function (Response) {
         console.log(Response)
-      
+
 
     })
         .fail(function (Response) {
             console.log(Response)
         });
-        document.location.reload(true)
+    document.location.reload(true)
 }
 
 function changeData(data, e) {
@@ -128,13 +287,13 @@ function changeData(data, e) {
 
             listattractions.forEach(a => {
                 if (indexChange == e.target.id) {
-                    if( d["cities"][c][a]["visited"]=="no"){
+                    if (d["cities"][c][a]["visited"] == "no") {
                         d["cities"][c][a]["visited"] = "yes";
-                    }else{
+                    } else {
                         d["cities"][c][a]["visited"] = "no";
                     }
-                 
-                 
+
+
                 }
                 indexChange++;
             });
@@ -143,7 +302,7 @@ function changeData(data, e) {
 
         //  }
 
-          saveData(data);
+        saveData(data);
     }
 
     )

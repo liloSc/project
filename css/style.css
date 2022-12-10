@@ -162,3 +162,7 @@ header {
 .section img {
   margin-right: 30px;
 }
+
+#myData ul{
+  list-style: none
+}
