@@ -1,4 +1,6 @@
-let map = L.map("tracker").setView(LONDON_CENTRE_LAT_LNG, 13);
+//let map = L.map("tracker").setView(LONDON_CENTRE_LAT_LNG, 13);
+let map = L.map("tracker").setView([48.856108562784534, 2.3518447120625594], 12);
+//var marker = L.marker([48.819185,2.336768]).addTo(map);
 let isStart = null;
 let path = null;
 let accumulatedDistance = 0;
