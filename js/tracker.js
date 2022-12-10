@@ -1,9 +1,11 @@
 //let map = L.map("tracker").setView(LONDON_CENTRE_LAT_LNG, 13);
 let map = L.map("tracker").setView([48.856108562784534, 2.3518447120625594], 5);
+var city= "Paris";
 var markerParis = L.marker([48.856108562784534, 2.3518447120625594]).addTo(map);
-markerParis.bindPopup("You have visited Paris<br/><a href='/city?place=Paris'>Overview</a>");
+markerParis.bindPopup("<div style='font-family:Gill Sans'>You have visited "+city+"<br/><a href='/city?place="+city+"'>Overview</a></div>");
 var markerBerlin = L.marker([52.511843, 13.354976]).addTo(map);
-markerBerlin.bindPopup("You have visited Berlin<br/><a href='/city?place=Berlin'>Overview</a>");
+city= "Berlin";
+markerBerlin.bindPopup("<div style='font-family:Gill Sans'>You have visited "+city+"<br/><a href='/city?place="+city+"'>Overview</a></div>");
 let isStart = null;
 let path = null;
 let accumulatedDistance = 0;
