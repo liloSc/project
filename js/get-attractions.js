@@ -34,11 +34,13 @@ fetch('/data/attractions.json')
                         'float:left;',
                     );
                     var icon= document.createElement("i");
+                    icon.id=index;
                     if(d["cities"][c][a]["visited"]=="yes"){ icon.innerHTML="check_circle";
                     icon.setAttribute(
                         'style',
                         'font-size: 2em;color:green',
                     );
+                  
                     icon.setAttribute(
                         'class',
                         'material-symbols-rounded',
@@ -53,9 +55,13 @@ fetch('/data/attractions.json')
                         'class',
                         'material-symbols-outlined',
                     );}
-                   
-                   
-                   
+                    icon.onclick = function (id) {
+                        console.log(id.target.id);
+                        changeData(data, id);
+                       
+    
+                    }
+                 
                     divIcon.appendChild(icon);
                     divAttraction.appendChild(divIcon);
                     var divText = document.createElement("div");
@@ -66,9 +72,23 @@ fetch('/data/attractions.json')
                     );
                     divText.innerHTML=d["cities"][c][a]["name"];
                     divAttraction.appendChild(divText);
-                    
+                 /*   var button = document.createElement("button");
+                    button.id = index;
+    
+                    button.innerHTML = "Change";
+                    button.setAttribute(
+                        'style',
+                        'background-color: blue; color: white; width: 100px; ',
+                    );
+                    //   var testdata="testliloClick";
+                    //TODO: Implement Functionality, that when button is pressed, the visit attribute changes --> JSON File gets overwritten
+                    button.onclick = function (id) {
+                        changeData(data, id);
+    
+                    }
+                    divAttraction.appendChild(button);*/
                     mainContainer.appendChild(divAttraction);
-
+                    index++;
                 })
             })
 
