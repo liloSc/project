@@ -114,6 +114,14 @@ app.get('/cities', function (req, res) {
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
+app.get('/history', function (req, res) {
+  session = req.session;
+  if (session.userid) {
+    console.log(session.userid)
+    res.render("history.ejs", { 'userid': session.userid, 'username': session.username })
+  } else
+    res.sendFile('views/login.html', { root: __dirname })
+})
 
 app.get('/my-attractions', function (req, res) {
   session = req.session;
