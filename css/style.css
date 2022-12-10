@@ -5,6 +5,7 @@ body {
   padding: 0;
   text-decoration: none;
   list-style: none;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 /* Header */
@@ -128,6 +129,8 @@ header {
 /* Footer */ 
 #footer {
   text-align: center;
+  margin-top: 10px;
+ 
 }
 /* Map */ 
 #map {
@@ -158,5 +161,4 @@ header {
 
 .section img {
   margin-right: 30px;
-
 }

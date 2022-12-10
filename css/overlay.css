@@ -11,9 +11,9 @@
   transition: 0.5s;
 }
 
-#map2 {
-  height: 85vh;
-  z-index:-1;
+#map-home {
+  height: 80vh;
+  width: 90%;
 }
 
 .overlay-content {
