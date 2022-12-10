@@ -6,11 +6,6 @@ body {
   text-decoration: none;
   list-style: none;
 }
-/*
-#body-page {
-  padding: 10px;
-
-}*/
 
 /* Header */
 header {
@@ -28,27 +23,24 @@ header {
 .navbar a {
   text-decoration: none;
   color:rgb(41, 41, 41);
- 
- 
 }
 
 .navbar .logo {
   font-size: 2em;
   font-weight: bold;
   padding-left: 10px;
-  
 }
 
 .navbar .nav-links ul {
   display: flex;
   list-style: none
- 
 }
 
 .navbar .nav-links ul li {
   margin: 0 10px;
   padding-top:20px;
 }
+
 .nav-links a:hover {
   background-color: #ddd;
   color: black;
