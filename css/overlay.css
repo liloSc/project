@@ -13,6 +13,7 @@
 
 #map2 {
   height: 85vh;
+  z-index:-1;
 }
 
 .overlay-content {

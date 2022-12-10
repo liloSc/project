@@ -1,16 +1,13 @@
 <!--<h1> Welcome <%= userid %> </h1>-->
-<nav class="navbar navbar-expand-lg">
+<!--<nav class="navbar navbar-expand-lg" id="myTopNav">
   <i class="material-symbols-outlined" >explore</i>
   <a class="navbar-brand" style="padding-left: 10px;"href="#" >Discover</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button onclick="myFunction()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-     
-    
       <li class="nav-item active">
         <a class="nav-link" href="/" >Home</a>
       </li>
@@ -32,25 +29,61 @@
       <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
       </li>
-      <!--  <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>-->
+     
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0" flex-end >
-        <input class="input-small" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>-->
+   
   </div>
 </nav>
+<script>
+  function myFunction() {
+    var x = document.getElementById("navbarSupportedContent");
+  if (x.className === "navbarSupportedContent") {
+    x.className += " responsive";
+  } else {
+    x.className = "navbarSupportedContent";
+  }
+}
+  </script>-->
+
+<nav class="navbar">
+  <i class="material-symbols-outlined" style="padding-left:20px;font-size: 2em; " >explore</i>
+  <a class="logo" href="/">Discover</a>
+
+  <div class="nav-links">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/checkPosition" style="text-decoration: line-through;">Check Position</a>
+      </li>
+      <li>
+        <a href="/map" style="text-decoration: line-through;">Map</a>
+      </li>
+      <li>
+        <a href="/cities" style="text-decoration: line-through;">Cities</a>
+      </li>
+      <li>
+        <a href="/my-attractions" style="text-decoration: line-through;">My Attractions</a>
+      </li>
+      <li>
+        <a href="/city" style="text-decoration: line-through;">City</a>
+      </li>
+      <li>
+        <a href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <div class="menu-hamburger"><i class="material-symbols-outlined">menu</i></div>
+
+  <!--
+  <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">-->
+</nav>
+
+<script>
+  const menuHamburger = document.querySelector(".menu-hamburger")
+  const navLinks = document.querySelector(".nav-links")
+  menuHamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-menu')
+  })
+</script>
