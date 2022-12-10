@@ -88,6 +88,14 @@ app.get('/', (req, res) => {
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
+app.get('/checkPosition', (req, res) => {
+  session = req.session;
+  if (session.userid) {
+    res.render("checkPosition.ejs", { 'userid': session.userid, 'username': session.username })
+
+  } else
+    res.sendFile('views/login.html', { root: __dirname })
+})
 
 app.get('/map', function (req, res) {
   session = req.session;

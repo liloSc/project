@@ -7,12 +7,9 @@ body {
   box-sizing: border-box;
 }
 
-#container {
+#body-page {
   padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 100px auto 50px;
-  height: calc(100vh - 20px);
+
 }
 
 
@@ -21,45 +18,20 @@ body {
   margin: auto;
 }
 
-#content {
-  background: #fff;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
 
-}
 
 .form-inline .form-control {
   width: 600px;
 }
 
-#content-center {
-  grid-column: 2/6;
-  border-top: solid rgb(200, 200, 200) 2px;
-  border-bottom: solid rgb(200, 200, 200) 2px;
-  padding: 10px;
-}
 
-#content-left {
-  border: solid rgb(200, 200, 200) 2px;
-  padding: 10px;
-}
-
-#content-right {
-  border: solid rgb(200, 200, 200) 2px;
-  padding: 10px;
-}
 
 #footer {
-  /*background: #49afb1;*/
-  text-align: center;
+ /*background: #49afb1;*/
+ text-align: center;
 }
 
-.nav-left {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 5px;
-  padding: 10px;
-}
+
 
 #map {
   height: 500px;
