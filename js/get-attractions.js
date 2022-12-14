@@ -1,5 +1,3 @@
-
-
 var listCities = ["Paris", "Berlin"];
 var listattractions = ["attraction1", "attraction2", "attraction3"];
 
@@ -104,30 +102,31 @@ function saveData(data) {
         .fail(function (Response) {
             console.log(Response)
         });
-    document.location.reload(true)
+       document.location.reload(true)
 }
 
 function changeData(data, e) {
-    console.log(e.target.id)
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const place = urlParams.get('place')
+    console.log("In ChangeData" + e.target.id)
 
     var indexChange = 0;
     data.forEach(d => {
         //TODO: Only the user, how to get current userid??
         //   if (d.userid == userid) {
         listCities.forEach(c => {
-
-            listattractions.forEach(a => {
-                if (indexChange == e.target.id) {
-                    if (d["cities"][c][a]["visited"] == "no") {
-                        d["cities"][c][a]["visited"] = "yes";
-                    } else {
-                        d["cities"][c][a]["visited"] = "no";
+            if (c == place)
+                listattractions.forEach(a => {
+                    if (indexChange == e.target.id) {
+                        if (d["cities"][c][a]["visited"] == "no") {
+                            d["cities"][c][a]["visited"] = "yes";
+                        } else {
+                            d["cities"][c][a]["visited"] = "no";
+                        }
                     }
-
-
-                }
-                indexChange++;
-            });
+                    indexChange++;
+                });
         }
         )
         saveData(data);
