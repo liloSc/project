@@ -10,7 +10,7 @@
             <p>2/10</p>
             <!-- <button onclick="window.location.href='map?user=lilo&city=paris'" type="button" class="btn btn-dark">
                 See Route</button>-->
-            <a class="btn btn-dark btn-sm" href="/map?city=" +place id="buttonRoute">See Route</a>
+            <a class="btn btn-dark btn-sm" id="buttonRoute">See Route</a>
         </div>
         <script>
             // Adapted from examples on the Querystring homepage.
@@ -28,7 +28,7 @@
     <div style="margin-left: 40px;">Attractions:</div>
 
     <div id="myData"> </div>
-    <div style="width:100px">
+    <div style="width:300px">
         <canvas id="myChart"></canvas>
     </div>
 
@@ -42,10 +42,10 @@
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['1', '2', '3', '4', '5', '6'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Elevation',
+                    data: [12, 19, 30, 50, 20, 30], //Height Data
                     borderWidth: 1
                 }]
             },
@@ -57,6 +57,17 @@
                 }
             }
         });
+   /*     new Chart(ctx, {
+                 type: 'bar',
+       data: [12, 19, 3, 5, 2, 3],
+       options: {
+         scales: {
+           y: {
+             beginAtZero: true
+           }
+         }
+       },
+             });*/
     </script>
     <style>
 
