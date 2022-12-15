@@ -30,7 +30,12 @@ var latlngs = [
     [34.04, -118.2]
 ];
 
-$.getJSON('/get-path', function (data) {
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const city = urlParams.get('city');
+console.log("This is the current place"+city)
+
+$.getJSON('/get-path?city='+city, function (data) {
     var polyline = L.polyline(data.path, { color: 'red' }).addTo(map);
 
     // zoom the map to the polyline

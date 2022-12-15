@@ -8,46 +8,59 @@
                     aria-valuemax="100"></div>
             </div>
             <p>2/10</p>
+            <!-- <button onclick="window.location.href='map?user=lilo&city=paris'" type="button" class="btn btn-dark">
+                See Route</button>-->
+            <a class="btn btn-dark btn-sm" href="/map?city=" +place id="buttonRoute">See Route</a>
         </div>
         <script>
             // Adapted from examples on the Querystring homepage.
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const place = urlParams.get('place')
-            console.log("PLACE IS" + place);
+            console.log("PLACE IS " + place);
             document.getElementById('place').innerHTML = place;
+
+            var a = document.getElementById('buttonRoute'); //or grab it by tagname etc
+            a.href = "/map?city=" + place;
         </script>
     </div>
 
-    <!-- <i class="material-symbols-rounded" style="padding-left:20px;font-size: 2em;color:green ">check_circle</i>
-    <i class="material-symbols-outlined" style="padding-left:20px;font-size: 2em;color:grey ">circle</i>
--->
     <div style="margin-left: 40px;">Attractions:</div>
-    <!--<script src="/js/get-cities.js"></script>
--->
-<div id="myData">
-   <!-- <div style=" clear:both; ">
-        <div style="float:left; ">
-            <i class="material-symbols-outlined" style="font-size: 2em;color:grey ">circle</i>
-        </div>
-        <div style=" float:left; margin-left:10px;font-size: 20px;">
-            First DIV
-        </div>
+
+    <div id="myData"> </div>
+    <div style="width:100px">
+        <canvas id="myChart"></canvas>
     </div>
-   
-    <div style=" clear:both; ">
-        <div style="float:left; ">
-            <i class="material-symbols-outlined" style="font-size: 2em;color:grey ">circle</i>
-        </div>
-        <div style=" float:left;  margin-left:10px;font-size: 20px">
-            Second DIV
-        </div>
-    </div>-->
-
-
-
-    <!--  <button id="testWriting"></button>-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="./js/get-attractions.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        ctx.width = 100;
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <style>
+
+
+
+    </style>
 </div>

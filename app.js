@@ -4,6 +4,7 @@ const fs = require('fs');
 const expressLayouts = require('express-ejs-layouts') // Import express layouts 
 const app = express();              //Instantiate an express app, the main work horse of this server
 const port = 8080;                  //Save the port number where your server will be listening
+const visPathController = require('./controllers/vis-path');
 
 /*********************************/
 /** DEFINITIONS TO USE SESSIONS **/
@@ -96,6 +97,9 @@ app.get('/checkPosition', (req, res) => {
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
+
+app.get("/get-path", visPathController.getPath);
+module.exports = app; 
 
 app.get('/map', function (req, res) {
   session = req.session;
