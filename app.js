@@ -89,6 +89,10 @@ app.get('/', (req, res) => {
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
+app.get('/getuser', (req, res) => {
+  session = req.session;
+  console.log(session.userid)
+})
 app.get('/checkPosition', (req, res) => {
   session = req.session;
   if (session.userid) {

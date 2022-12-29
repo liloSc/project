@@ -9,7 +9,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 //Load Data
-
 fetch('/data/' + "lilo" + '_cities.json')
   .then(function (response) {
     return response.json();
@@ -20,6 +19,8 @@ fetch('/data/' + "lilo" + '_cities.json')
   .catch(function (err) {
     console.log('error: ' + err);
   });
+
+// console.log(datatoString)
 
 function initiateCities(data) {
 
