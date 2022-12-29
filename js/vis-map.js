@@ -33,24 +33,24 @@ var latlngs = [
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const city = urlParams.get('city');
-console.log("This is the current place"+city)
+console.log("This is the current place" + city)
 
-$.getJSON('/get-path?city='+city, function (data) {
-   var polyline = L.polyline(data.path, { color: 'red' }).addTo(map);
+$.getJSON('/get-path?city=' + city, function (data) {
+    var polyline = L.polyline(data.path, { color: 'red' }).addTo(map);
 
     // zoom the map to the polyline
     map.fitBounds(polyline.getBounds());
-  /*  var polygon = L.polygon([
-        data.path
-    ]).addTo(map);
-    map.fitBounds(polygon.getBounds());*/
-    console.log(data.path);
-  var array1=data.path;
-   var marker = L.marker  ([array1[0], array1[1]]).addTo(map);
-  //  var marker = L.marker  ([ 48.85851125395903, 2.2945349423630814 ]).addTo(map);
-   /* data.forEach(d => {
-        console.log(d);
-        var marker = L.marker(d[0],d[1]).addTo(map);
-
-    })*/
+    /*  var polygon = L.polygon([
+          data.path
+      ]).addTo(map);
+      map.fitBounds(polygon.getBounds());*/
+  //  console.log(data.path);
+    var array1 = data.path;
+    var marker = L.marker([array1[0], array1[1]]).addTo(map);
+    //  var marker = L.marker  ([ 48.85851125395903, 2.2945349423630814 ]).addTo(map);
+    /* data.forEach(d => {
+         console.log(d);
+         var marker = L.marker(d[0],d[1]).addTo(map);
+ 
+     })*/
 })

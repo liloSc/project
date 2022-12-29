@@ -1,12 +1,45 @@
-//let map = L.map("tracker").setView(LONDON_CENTRE_LAT_LNG, 13);
+
+//Initialize Map
+//Step 1: create a map
 let map = L.map("tracker").setView([48.856108562784534, 2.3518447120625594], 5);
-var city= "Paris";
+//Step 2: add a tile layer to add to our map
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+//Load Data
+
+fetch('/data/' + "lilo" + '_cities.json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    initiateCities(data);
+  })
+  .catch(function (err) {
+    console.log('error: ' + err);
+  });
+
+function initiateCities(data) {
+
+  data.forEach(d => {
+    var marker = L.marker([d["longitude"], d["latitude"]]).addTo(map);
+    marker.bindPopup("<div style='font-family:Gill Sans'>You have visited " + d["cityname"] + "<br/><a href='/city?place=" + d["cityname"] + "'>Overview</a></div>");
+
+  })
+
+}
+/*
+var city = "Paris";
 var markerParis = L.marker([48.856108562784534, 2.3518447120625594]).addTo(map);
-markerParis.bindPopup("<div style='font-family:Gill Sans'>You have visited "+city+"<br/><a href='/city?place="+city+"'>Overview</a></div>");
+markerParis.bindPopup("<div style='font-family:Gill Sans'>You have visited " + city + "<br/><a href='/city?place=" + city + "'>Overview</a></div>");
 var markerBerlin = L.marker([52.511843, 13.354976]).addTo(map);
-city= "Berlin";
-markerBerlin.bindPopup("<div style='font-family:Gill Sans'>You have visited "+city+"<br/><a href='/city?place="+city+"'>Overview</a></div>");
-let isStart = null;
+city = "Berlin";
+markerBerlin.bindPopup("<div style='font-family:Gill Sans'>You have visited " + city + "<br/><a href='/city?place=" + city + "'>Overview</a></div>");
+*/
+
+/*let isStart = null;
 let path = null;
 let accumulatedDistance = 0;
 let currentMarker = null;
@@ -31,7 +64,10 @@ L.tileLayer(
     accessToken:
       "pk.eyJ1IjoibTQxaGlnaHdheSIsImEiOiJja295ZjQya2wwaTkxMnFtY203Z21wNjhzIn0.uF1S6TqlDfW7wmQ17Kp4NQ",
   }
-).addTo(map);
+).addTo(map);*/
+
+
+/*
 
 const startTracking = () => {
   if(!navigator.geolocation) {
@@ -176,8 +212,9 @@ const calculateDelta = (track) => {
 }
 
 const round = (num, places) => {
-	return +(parseFloat(num).toFixed(places));
+  return +(parseFloat(num).toFixed(places));
 }
 
 document.querySelector("#tracker")
   .addEventListener("GEO_EVENT", updateMap);
+  */
