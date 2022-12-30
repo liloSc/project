@@ -13,11 +13,16 @@ fetch('/data/attractions.json')
     });
 
 function appendData(data) {
-    var mainContainer = document.getElementById("myData");
+    var containerAttractions = document.getElementById("loadAttractions");
+    var containerProgress = document.getElementById("loadProgress");
+    var containerProgressbar = document.getElementById("loadProgressbar");
+   
     var index = 0;
+    var counterProgress=0;
+    var maximumAttractions=0;
     data.forEach(d => {
         listCities.forEach(c => {
-            if (c == document.getElementById("place").innerHTML)
+            if (c == document.getElementById("place").innerHTML){
                 listattractions.forEach(a => {
 
                     var divAttraction = document.createElement("div");
@@ -44,6 +49,7 @@ function appendData(data) {
                             'class',
                             'material-symbols-rounded',
                         );
+                        counterProgress++;
                     }
                     else if (d["cities"][c][a]["visited"] == "no") {
                         icon.innerHTML = "circle";
@@ -74,17 +80,37 @@ function appendData(data) {
                     divText.innerHTML = d["cities"][c][a]["name"];
                     divAttraction.appendChild(divText);
 
-                    mainContainer.appendChild(divAttraction);
+                    containerAttractions.appendChild(divAttraction);
                     index++;
+                  
+                    maximumAttractions++;
                 })
+              
+              
+            }
+      
         })
-
-
     })
+    var divProgressbar = document.createElement("div");
+   // divProgressbar.innerHTML=counterProgress + "/"+ maximumAttractions;
+   divProgressbar.setAttribute(
+        'class',
+        'progress-bar',
+    );
+    divProgressbar.setAttribute(
+        'role',
+        'progressbar',
+    );
+    divProgressbar.setAttribute(
+        'style',
+        'width: '+counterProgress / maximumAttractions*100+'%',
+    );
+   
 
-
-
-
+    containerProgressbar.appendChild(divProgressbar);
+    var divProgress = document.createElement("div");
+    divProgress.innerHTML=counterProgress + "/"+ maximumAttractions;
+    containerProgress.appendChild(divProgress);
 }
 
 function saveData(data) {

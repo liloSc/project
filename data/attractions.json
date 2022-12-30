@@ -5,15 +5,21 @@
             "Paris": {
                 "attraction1": {
                     "name": "Tour Eiffel",
-                    "visited": "no"
+                    "visited": "yes",
+                    "longitude": 48.85851125395903,
+                    "latitude": 2.2945349423630814
                 },
                 "attraction2": {
                     "name": "Arc de Triomphe",
-                    "visited": "yes"
+                    "visited": "yes",
+                    "longitude": 48.87396103664762,
+                    "latitude": 2.295059684550192
                 },
                 "attraction3": {
                     "name": "Louvre",
-                    "visited": "no"
+                    "visited": "yes",
+                    "longitude": 48.86079459806644,
+                    "latitude": 2.337676184549711
                 }
             },
             "Berlin": {

@@ -3,13 +3,16 @@
         <img src="../resources/paris.jpg" alt="Paris" style="width:200px;height:auto;border-radius: 50%;">
         <div class="text">
             <h3 style=" font-size: 2em; font-weight: bold;" id="place"></h3>
-            <div class="progress" style="width: 200px;height:5px">
+            <!--<div class="progress" style="width: 200px;height:5px">
                 <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
                     aria-valuemax="100"></div>
+            </div>-->
+            <div id="loadProgressbar" class="progress" style="width: 200px;height:5px">
+              
             </div>
-            <p>2/10</p>
-            <!-- <button onclick="window.location.href='map?user=lilo&city=paris'" type="button" class="btn btn-dark">
-                See Route</button>-->
+           
+            <p id="loadProgress"> </p>
+        
             <a class="btn btn-dark btn-sm" id="buttonRoute">See Route</a>
         </div>
         <script>
@@ -17,7 +20,7 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const place = urlParams.get('place')
-            console.log("PLACE IS " + place);
+           // console.log("PLACE IS " + place);
             document.getElementById('place').innerHTML = place;
 
             var a = document.getElementById('buttonRoute'); //or grab it by tagname etc
@@ -27,7 +30,7 @@
 
     <div style="margin-left: 40px;">Attractions:</div>
 
-    <div id="myData"> </div>
+    <div id="loadAttractions"> </div>
     <div style="width:300px">
         <canvas id="myChart"></canvas>
     </div>

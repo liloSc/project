@@ -1,13 +1,10 @@
 <!--First Item-->
 
-<% var listplaces=["Paris","Berlin"]; for(p of listplaces){
-    var pathClick ="location.href='/city?place="+p+"'"; 
-    var pathPicture ="../resources/"+p.toLowerCase()+".jpg"; 
-    %>
+<% var listplaces=["Paris","Berlin"]; for(p of listplaces){ var pathClick="location.href='/city?place=" +p+"'"; var
+    pathPicture="../resources/" +p.toLowerCase()+".jpg"; %>
 
-    <!--<div class="section" onclick= <%= pathClick %> style="cursor: pointer;">-->
-        <div class="section" onclick= <%= pathClick %> style="cursor: pointer;">
-        <img src=<%= pathPicture %> alt="Paris" style="width:100px;height:auto;border-radius: 50%;">
+    <div class="section" onclick=<%=pathClick %> style="cursor: pointer;">
+        <img src=<%=pathPicture %> alt=p style="width:100px;height:auto;border-radius: 50%;">
 
         <div class="text">
             <h3>
@@ -21,17 +18,7 @@
         </div>
     </div>
     <% } %>
-        <!--<div class="section" onclick="location.href='/city?place=Paris';" style="cursor: pointer;">
-    <img src="../resources/paris.jpg" alt="Paris" style="width:100px;height:auto;border-radius: 50%;">
-   
-    <div class="text">
-        <h3>Paris</h3>
-        <div class="progress" style="width: 200px;height:5px">
-            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                aria-valuemax="100"></div>
-        </div>
-        <p>2/10</p>
-    </div>
+      
  
    
 </div>
