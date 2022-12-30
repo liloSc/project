@@ -24,16 +24,22 @@
             },
             "Berlin": {
                 "attraction1": {
-                    "name": "Tour Eiffel",
-                    "visited": "no"
+                    "name": "Brandenburger Tor",
+                    "visited": "no",
+                    "longitude": 52.516486,
+                    "latitude": 13.377820
                 },
                 "attraction2": {
-                    "name": "Arc de Triomphe",
-                    "visited": "yes"
+                    "name": "Reichstagsgebäude",
+                    "visited": "yes",
+                    "longitude": 52.5186202,
+                    "latitude": 13.3761872
                 },
                 "attraction3": {
-                    "name": "Louvre",
-                    "visited": "yes"
+                    "name": "Holocaust Denkmal",
+                    "visited": "yes",
+                    "longitude": 52.5139474,
+                    "latitude": 13.376524
                 }
             }
         }
