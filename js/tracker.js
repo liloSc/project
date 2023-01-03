@@ -8,8 +8,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+var data = "alex@alex.com";
+const array = data.split("@");
+
+
 //Load Data
-fetch('/data/' + "lilo" + '_cities.json')
+fetch('/data/' + array[0] + '_cities.json')
   .then(function (response) {
     return response.json();
   })
@@ -19,6 +23,7 @@ fetch('/data/' + "lilo" + '_cities.json')
   .catch(function (err) {
     console.log('error: ' + err);
   });
+
 
 // console.log(datatoString)
 
