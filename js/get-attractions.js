@@ -1,14 +1,14 @@
-//var listCities = ["Paris", "Berlin"];
+var listCities = ["Paris", "Berlin"];
 //var listCities = ["Paris0", "Paris2"];
-var listCities = [];
-var listattractions = ["attraction1", "attraction2", "attraction3", "attraction4"];
+//var listCities = [];
+//var listattractions = ["attraction1", "attraction2", "attraction3", "attraction4", "attraction5", "attraction6", "attraction7", "attraction8"];
 
 fetch('/data/attractions.json')
     .then(function (response) {
         return response.json();
     })
-    .then(function (data) {
-        appendData(data);
+    .then(function (dataattractions) {
+        appendAttractionsData(dataattractions);
     })
     .catch(function (err) {
         console.log('error: ' + err);
@@ -24,7 +24,7 @@ fetch('/data/' + "lilo" + '_cities.json')
             //   var cityname= "Paris";
             //  listCities.push(d["cityname"]);
             //   listCities.push(cityname);
-          
+
             listCities.push("Paris");
             // listCities = listCities + (d["cityname"]);
 
@@ -33,8 +33,10 @@ fetch('/data/' + "lilo" + '_cities.json')
     .catch(function (err) {
         console.log('error: ' + err);
     });
+console.log(listCities);
 console.log(listCities[0][0]);
-function appendData(data) {
+
+function appendAttractionsData(data) {
     var containerAttractions = document.getElementById("loadAttractions");
     var containerProgress = document.getElementById("loadProgress");
     var containerProgressbar = document.getElementById("loadProgressbar");
@@ -43,20 +45,34 @@ function appendData(data) {
     var counterProgress = 0;
     var maximumAttractions = 0;
 
+    //Iterate through attractions data
+
+
+    /*   data.forEach(d => {
+           //  console.log(JSON.stringify(d))
+           console.log(d["cities"][0])
+           console.log(d["cities"]["Paris"])
+           console.log(Object.keys(d["cities"]["Paris"]).length)
+           //Object.keys(myObject).length
+           listCities.forEach(c => {
+               if (c == document.getElementById("place").innerHTML) {
+                   //Iterate through attractions in the city
+   
+           }
+               )
+       })*/
     data.forEach(d => {
-        console.log(listCities[1]);
-        // console.log(d["cities"])
-        //   console.log(numberCities);
+
         listCities.forEach(c => {
             if (c == document.getElementById("place").innerHTML) {
-                listattractions.forEach(a => {
-
+                //Iterate through attractions in the city
+                for (var i = 0; i < Object.keys(d["cities"]["Paris"]).length; i++) {
+                    console.log(i)
                     var divAttraction = document.createElement("div");
                     divAttraction.setAttribute(
                         'style',
                         'clear:both;',
                     );
-
                     var divIcon = document.createElement("div");
                     divIcon.setAttribute(
                         'style',
@@ -64,7 +80,11 @@ function appendData(data) {
                     );
                     var icon = document.createElement("i");
                     icon.id = index;
-                    if (d["cities"][c][a]["visited"] == "yes") {
+                    var currentAttraction = i + 1;
+                    var currentAttractionName = "attraction" + currentAttraction;
+                    // console.log(d["cities"][c]["attraction1"])
+                    //  if (d["cities"][c]["attraction1"]["visited"] == "yes") {}
+                    if (d["cities"][c][currentAttractionName]["visited"] == "yes") {
                         icon.innerHTML = "check_circle";
                         icon.setAttribute(
                             'style',
@@ -76,8 +96,7 @@ function appendData(data) {
                             'material-symbols-rounded',
                         );
                         counterProgress++;
-                    }
-                    else if (d["cities"][c][a]["visited"] == "no") {
+                    } else if (d["cities"][c][currentAttractionName]["visited"] == "no") {
                         icon.innerHTML = "circle";
                         icon.setAttribute(
                             'style',
@@ -103,20 +122,96 @@ function appendData(data) {
                         'style',
                         'float:left; margin-left:10px;font-size: 20px; ',
                     );
-                    divText.innerHTML = d["cities"][c][a]["name"];
+                    divText.innerHTML = d["cities"][c][currentAttractionName]["name"];
                     divAttraction.appendChild(divText);
 
                     containerAttractions.appendChild(divAttraction);
                     index++;
 
                     maximumAttractions++;
-                })
-
-
+                }
             }
 
         })
     })
+
+    //Iterate through whole dataset
+    /*  data.forEach(d => {
+         // console.log(listCities[1]);
+          // console.log(d["cities"])
+          //   console.log(numberCities);
+          //Iterate through list of cities
+          listCities.forEach(c => {
+              if (c == document.getElementById("place").innerHTML) {
+                  //Iterate through attractions in the city
+                  listattractions.forEach(a => {
+  
+                      var divAttraction = document.createElement("div");
+                      divAttraction.setAttribute(
+                          'style',
+                          'clear:both;',
+                      );
+  
+                      var divIcon = document.createElement("div");
+                      divIcon.setAttribute(
+                          'style',
+                          'float:left;',
+                      );
+                      var icon = document.createElement("i");
+                      icon.id = index;
+                      if (d["cities"][c][a]["visited"] == "yes") {
+                          icon.innerHTML = "check_circle";
+                          icon.setAttribute(
+                              'style',
+                              'font-size: 2em;color:green',
+                          );
+  
+                          icon.setAttribute(
+                              'class',
+                              'material-symbols-rounded',
+                          );
+                          counterProgress++;
+                      }
+                      else if (d["cities"][c][a]["visited"] == "no") {
+                          icon.innerHTML = "circle";
+                          icon.setAttribute(
+                              'style',
+                              'font-size: 2em;color:grey',
+                          );
+                          icon.setAttribute(
+                              'class',
+                              'material-symbols-outlined',
+                          );
+                      }
+                      icon.onclick = function (id) {
+                          console.log(id.target.id);
+                          changeData(data, id);
+  
+  
+                      }
+  
+                      divIcon.appendChild(icon);
+                      divAttraction.appendChild(divIcon);
+                      var divText = document.createElement("div");
+  
+                      divText.setAttribute(
+                          'style',
+                          'float:left; margin-left:10px;font-size: 20px; ',
+                      );
+                      divText.innerHTML = d["cities"][c][a]["name"];
+                      divAttraction.appendChild(divText);
+  
+                      containerAttractions.appendChild(divAttraction);
+                      index++;
+  
+                      maximumAttractions++;
+                  })
+  
+  
+              }
+  
+          })
+      })*/
     var divProgressbar = document.createElement("div");
     // divProgressbar.innerHTML=counterProgress + "/"+ maximumAttractions;
     divProgressbar.setAttribute(
@@ -141,7 +236,7 @@ function appendData(data) {
 
 function saveData(data) {
     var datatoString = JSON.stringify(data);
-    // console.log(datatoString)
+
     $.ajax({
         url: "/saveData",
         data: datatoString,
@@ -169,7 +264,11 @@ function changeData(data, e) {
         //   if (d.userid == userid) {
         listCities.forEach(c => {
             if (c == place)
-                listattractions.forEach(a => {
+             //   listattractions.forEach(a => {
+                for (var i = 0; i < Object.keys(d["cities"]["Paris"]).length; i++) {
+                    var currentAttraction = i + 1;
+                    var a = "attraction" + currentAttraction;
+                  
                     if (indexChange == e.target.id) {
                         if (d["cities"][c][a]["visited"] == "no") {
                             d["cities"][c][a]["visited"] = "yes";
@@ -178,7 +277,7 @@ function changeData(data, e) {
                         }
                     }
                     indexChange++;
-                });
+                }
         }
         )
         saveData(data);
