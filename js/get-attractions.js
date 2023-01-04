@@ -1,4 +1,8 @@
 var listCities = [];
+
+/*var data = "alex@alex.com";
+const array = data.split("@");
+fetch('/data/' + array[0] + '_cities.json')*/
 //Load Data
 fetch('/data/' + "lilo" + '_cities.json')
     .then(function (response) {
@@ -46,8 +50,10 @@ function appendAttractionsData(data) {
 
         listCities.forEach(c => {
             if (c == document.getElementById("place").innerHTML) {
+                var lengthAttractions = Object.keys(d["cities"][c]).length || {};
+
                 //Iterate through attractions in the city
-                for (var i = 0; i < Object.keys(d["cities"]["Paris"]).length; i++) {
+                for (var i = 0; i < lengthAttractions; i++) {
                     //  console.log(i)
                     var divAttraction = document.createElement("div");
                     divAttraction.setAttribute(
