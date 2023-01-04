@@ -1,5 +1,7 @@
-var listCities = ["Paris", "Berlin"];
-var listattractions = ["attraction1", "attraction2", "attraction3"];
+//var listCities = ["Paris", "Berlin"];
+//var listCities = ["Paris0", "Paris2"];
+var listCities = [];
+var listattractions = ["attraction1", "attraction2", "attraction3", "attraction4"];
 
 fetch('/data/attractions.json')
     .then(function (response) {
@@ -12,17 +14,41 @@ fetch('/data/attractions.json')
         console.log('error: ' + err);
     });
 
+//Load Data
+fetch('/data/' + "lilo" + '_cities.json')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (dataUserCities) {
+        dataUserCities.forEach(d => {
+            //   var cityname= "Paris";
+            //  listCities.push(d["cityname"]);
+            //   listCities.push(cityname);
+          
+            listCities.push("Paris");
+            // listCities = listCities + (d["cityname"]);
+
+        })
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    });
+console.log(listCities[0][0]);
 function appendData(data) {
     var containerAttractions = document.getElementById("loadAttractions");
     var containerProgress = document.getElementById("loadProgress");
     var containerProgressbar = document.getElementById("loadProgressbar");
-   
+
     var index = 0;
-    var counterProgress=0;
-    var maximumAttractions=0;
+    var counterProgress = 0;
+    var maximumAttractions = 0;
+
     data.forEach(d => {
+        console.log(listCities[1]);
+        // console.log(d["cities"])
+        //   console.log(numberCities);
         listCities.forEach(c => {
-            if (c == document.getElementById("place").innerHTML){
+            if (c == document.getElementById("place").innerHTML) {
                 listattractions.forEach(a => {
 
                     var divAttraction = document.createElement("div");
@@ -82,18 +108,18 @@ function appendData(data) {
 
                     containerAttractions.appendChild(divAttraction);
                     index++;
-                  
+
                     maximumAttractions++;
                 })
-              
-              
+
+
             }
-      
+
         })
     })
     var divProgressbar = document.createElement("div");
-   // divProgressbar.innerHTML=counterProgress + "/"+ maximumAttractions;
-   divProgressbar.setAttribute(
+    // divProgressbar.innerHTML=counterProgress + "/"+ maximumAttractions;
+    divProgressbar.setAttribute(
         'class',
         'progress-bar',
     );
@@ -103,13 +129,13 @@ function appendData(data) {
     );
     divProgressbar.setAttribute(
         'style',
-        'width: '+counterProgress / maximumAttractions*100+'%',
+        'width: ' + counterProgress / maximumAttractions * 100 + '%',
     );
-   
+
 
     containerProgressbar.appendChild(divProgressbar);
     var divProgress = document.createElement("div");
-    divProgress.innerHTML=counterProgress + "/"+ maximumAttractions;
+    divProgress.innerHTML = counterProgress + "/" + maximumAttractions;
     containerProgress.appendChild(divProgress);
 }
 
@@ -128,7 +154,7 @@ function saveData(data) {
         .fail(function (Response) {
             console.log(Response)
         });
-       document.location.reload(true)
+    document.location.reload(true)
 }
 
 function changeData(data, e) {
