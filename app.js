@@ -126,7 +126,7 @@ app.get('/history', function (req, res) {
   session = req.session;
   if (session.userid) {
     console.log(session.userid)
-    res.render("history.ejs", { 'userid': session.userid, 'username': session.username })
+    res.render("overview.ejs", { 'userid': session.userid, 'username': session.username })
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
