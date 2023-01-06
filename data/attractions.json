@@ -129,7 +129,7 @@
             "Brussels": {
                 "attraction1": {
                     "name": "Grote Markt",
-                    "visited": "no",
+                    "visited": "yes",
                     "longitude": 0,
                     "latitude": 0
                 },
@@ -147,7 +147,7 @@
                 },
                 "attraction4": {
                     "name": "Palais Royal",
-                    "visited": "no",
+                    "visited": "yes",
                     "longitude": 0,
                     "latitude": 0
                 },
@@ -165,7 +165,7 @@
                 },
                 "attraction7": {
                     "name": "Jubel Park",
-                    "visited": "no",
+                    "visited": "yes",
                     "longitude": 0,
                     "latitude": 0
                 },

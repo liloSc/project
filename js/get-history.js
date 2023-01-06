@@ -19,25 +19,14 @@ function updateCities(dataUserCities) {
     dataUserCities.forEach(d => {
         listCities.push(d["cityname"]);
     })
-  //  console.log(listCities);
     setupSite(dataUserCities);
 }
-/*
-function getAttractions(city) {
-   
-}
-function openAttractions(data, city) {
-    data.forEach(d => {
-        var lengthAttractions = Object.keys(d["cities"][city]).length || {};
-        console.log("Total Number of Attractions of " + city + " " + lengthAttractions)
-        maximumAttractions=lengthAttractions;
-    })
-}*/
-
 
 function setupSite() {
 
     listCities.forEach(c => {
+        var pathClick = "location.href='/city?place=" + c + "'";
+
         var counterProgress = 0;
         var maximumAttractions = 0;
         fetch('/data/attractions.json')
@@ -47,7 +36,6 @@ function setupSite() {
             .then(function (dataattractions) {
                 dataattractions.forEach(d => {
                     var lengthAttractions = Object.keys(d["cities"][c]).length || {};
-                   // console.log("Total Number of Attractions of " + c + " " + lengthAttractions) 
                     maximumAttractions = lengthAttractions;
                     for (var i = 0; i < lengthAttractions; i++) {
                         var currentAttraction = i + 1;
@@ -56,11 +44,12 @@ function setupSite() {
                             counterProgress++;
                         }
                     }
-                  //  console.log('maximumAttractions: ' + maximumAttractions);
-                  //  console.log('counterProgress: ' + counterProgress);
-
                     var place = document.createElement("div");
                     place.classList.add("section");
+                    place.setAttribute(
+                        'onclick',
+                        pathClick,
+                    )
                     /** Image*/
                     var place_img = document.createElement("img");
                     place_img.src = "../resources/" + c + ".jpg";
