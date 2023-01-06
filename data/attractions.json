@@ -130,62 +130,62 @@
                 "attraction1": {
                     "name": "Grote Markt",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.846734,
+                    "latitude": 4.352562
                 },
                 "attraction2": {
                     "name": "Atomium",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.894844843719845,
+                    "latitude": 4.341318663729615
                 },
                 "attraction3": {
                     "name": "Manneken Pis",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.844989168927555,
+                    "latitude": 4.349954129392903
                 },
                 "attraction4": {
                     "name": "Palais Royal",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.8418972058575,
+                    "latitude": 4.362486586473553
                 },
                 "attraction5": {
                     "name": "Museum of Arts",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.84205902172115,
+                    "latitude": 4.357667652299727
                 },
                 "attraction6": {
                     "name": "Kathedrale St Michael",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.847873823485436,
+                    "latitude": 4.3599251079068075
                 },
                 "attraction7": {
                     "name": "Jubel Park",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.84142685417036,
+                    "latitude": 4.389893212145678
                 },
                 "attraction8": {
-                    "name": "Mini Europa",
+                    "name": "Mini Europe",
                     "visited": "no",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.89406561410013,
+                    "latitude": 4.338833652087669
                 },
                 "attraction9": {
-                    "name": "Galaries Royales Saint Hubert",
+                    "name": "Galeries Royales Saint Hubert",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.84805947067026,
+                    "latitude": 4.355250598115672
                 },
                 "attraction10": {
-                    "name": "Parlamnetarium ",
+                    "name": "Parlamnetarium",
                     "visited": "yes",
-                    "longitude": 0,
-                    "latitude": 0
+                    "longitude": 50.83981942921548,
+                    "latitude": 4.374028469279504
                 }
             }
         }

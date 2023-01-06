@@ -1,4 +1,5 @@
-<% var listplaces=["Paris","Berlin"]; for(p of listplaces){ var idname="progressbar" +p; var
+<% var listplaces=["Paris","Berlin"]; for(p of listplaces){ var idname="progressbar" +p; 
+var
     pathClick="location.href='/city?place=" +p+"'"; var pathPicture="../resources/" +p.toLowerCase()+".jpg"; %>
 
     <div class="section" onclick=<%=pathClick %> style="cursor: pointer;">
