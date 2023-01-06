@@ -73,15 +73,119 @@
                 },
                 "attraction2": {
                     "name": "Reichstagsgebaeude",
-                    "visited": "yes",
+                    "visited": "no",
                     "longitude": 52.5186202,
                     "latitude": 13.3761872
                 },
                 "attraction3": {
                     "name": "Holocaust Denkmal",
-                    "visited": "yes",
+                    "visited": "no",
                     "longitude": 52.5139474,
                     "latitude": 13.376524
+                },
+                "attraction4": {
+                    "name": "East Side Gallery",
+                    "visited": "no",
+                    "longitude": 52.5054011,
+                    "latitude": 13.43636
+                },
+                "attraction5": {
+                    "name": "Berliner Dom",
+                    "visited": "no",
+                    "longitude": 52.5190607,
+                    "latitude": 13.3965933
+                },
+                "attraction6": {
+                    "name": "Museumsinsel",
+                    "visited": "no",
+                    "longitude": 52.5168836,
+                    "latitude": 13.3933862
+                },
+                "attraction7": {
+                    "name": "Fernsehturm",
+                    "visited": "no",
+                    "longitude": 52.520815,
+                    "latitude": 13.4072304
+                },
+                "attraction8": {
+                    "name": "Checkpoint Charlie",
+                    "visited": "no",
+                    "longitude": 52.5074434,
+                    "latitude": 13.3728818
+                },
+                "attraction9": {
+                    "name": "Pergamonmuseum",
+                    "visited": "no",
+                    "longitude": 52.5211829,
+                    "latitude": 13.3924153
+                },
+                "attraction10": {
+                    "name": "Schloss Charlottenburg",
+                    "visited": "no",
+                    "longitude": 52.5209319,
+                    "latitude": 13.2934278
+                }
+            },
+            "Brussels": {
+                "attraction1": {
+                    "name": "Grote Markt",
+                    "visited": "no",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction2": {
+                    "name": "Atomium",
+                    "visited": "yes",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction3": {
+                    "name": "Manneken Pis",
+                    "visited": "yes",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction4": {
+                    "name": "Palais Royal",
+                    "visited": "no",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction5": {
+                    "name": "Museum of Arts",
+                    "visited": "yes",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction6": {
+                    "name": "Kathedrale St Michael",
+                    "visited": "yes",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction7": {
+                    "name": "Jubel Park",
+                    "visited": "no",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction8": {
+                    "name": "Mini Europa",
+                    "visited": "no",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction9": {
+                    "name": "Galaries Royales Saint Hubert",
+                    "visited": "yes",
+                    "longitude": 0,
+                    "latitude": 0
+                },
+                "attraction10": {
+                    "name": "Parlamnetarium ",
+                    "visited": "yes",
+                    "longitude": 0,
+                    "latitude": 0
                 }
             }
         }

@@ -12,5 +12,12 @@
         "cityname": "Berlin",
         "longitude": 52.511843,
         "latitude": 13.354976
+    },
+    {
+        "userid": "lilo@lilo.com",
+        "country": "Belgium",
+        "cityname": "Brussels",
+        "longitude": 50.851635,
+        "latitude": 4.357906
     }
 ]

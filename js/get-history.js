@@ -19,7 +19,7 @@ function updateCities(dataUserCities) {
     dataUserCities.forEach(d => {
         listCities.push(d["cityname"]);
     })
-    console.log(listCities);
+  //  console.log(listCities);
     setupSite(dataUserCities);
 }
 /*
@@ -33,17 +33,13 @@ function openAttractions(data, city) {
         maximumAttractions=lengthAttractions;
     })
 }*/
-function updateNumberAttractions(number) {
-    console.log(number)
-    maximumAttractions = 30;
-    console.log(maximumAttractions)
-}
+
 
 function setupSite() {
-    
+
     listCities.forEach(c => {
         var counterProgress = 0;
-    var maximumAttractions = 0;
+        var maximumAttractions = 0;
         fetch('/data/attractions.json')
             .then(function (response) {
                 return response.json();
@@ -51,23 +47,18 @@ function setupSite() {
             .then(function (dataattractions) {
                 dataattractions.forEach(d => {
                     var lengthAttractions = Object.keys(d["cities"][c]).length || {};
-                    console.log("Total Number of Attractions of " + c + " " + lengthAttractions)
-                    //  maximumAttractions=lengthAttractions;
-                    //  updateNumberAttractions(lengthAttractions);
+                   // console.log("Total Number of Attractions of " + c + " " + lengthAttractions) 
                     maximumAttractions = lengthAttractions;
-
                     for (var i = 0; i < lengthAttractions; i++) {
                         var currentAttraction = i + 1;
                         var currentAttractionName = "attraction" + currentAttraction;
-                       
                         if (d["cities"][c][currentAttractionName]["visited"] == "yes") {
-                           
                             counterProgress++;
-                        } 
+                        }
                     }
-                    console.log('maximumAttractions: ' + maximumAttractions);
-                    console.log('counterProgress: ' + counterProgress);
-                  
+                  //  console.log('maximumAttractions: ' + maximumAttractions);
+                  //  console.log('counterProgress: ' + counterProgress);
+
                     var place = document.createElement("div");
                     place.classList.add("section");
                     /** Image*/
@@ -100,7 +91,7 @@ function setupSite() {
                         'style',
                         'width: 200px;height:5px',
 
-                        );
+                    );
 
                     var divProgressbar = document.createElement("div");
                     divProgressbar.setAttribute(
