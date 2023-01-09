@@ -37,14 +37,10 @@ function initiateCities(data) {
   })
 
 }
-/*
-var city = "Paris";
-var markerParis = L.marker([48.856108562784534, 2.3518447120625594]).addTo(map);
-markerParis.bindPopup("<div style='font-family:Gill Sans'>You have visited " + city + "<br/><a href='/city?place=" + city + "'>Overview</a></div>");
-var markerBerlin = L.marker([52.511843, 13.354976]).addTo(map);
-city = "Berlin";
-markerBerlin.bindPopup("<div style='font-family:Gill Sans'>You have visited " + city + "<br/><a href='/city?place=" + city + "'>Overview</a></div>");
-*/
+/**
+ * Code from https://medium.com/geekculture/make-a-running-tracker-with-geolocation-api-8b2ac541196e
+ */
+//TODO: Adjust to our purpose
 
 let isStart = null;
 let path = null;
@@ -59,26 +55,12 @@ const trackOptions = {
   timeout: MAX_NEW_POSITION_MILLISECOND,
 };
 
-//L.tileLayer(
-// "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
   {
     maxZoom: 18,
-    //  id: "mapbox/streets-v11",
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-
-   /* attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
- , 
-   
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken:
-      "pk.eyJ1IjoibTQxaGlnaHdheSIsImEiOiJja295ZjQya2wwaTkxMnFtY203Z21wNjhzIn0.uF1S6TqlDfW7wmQ17Kp4NQ",
- */ }
+  }
 ).addTo(map);
-
-
 
 
 const startTracking = () => {
