@@ -42,7 +42,7 @@ function insertVisualization() {
     const bubblechart = document.getElementById('bubblechart');
 
     new Chart(bubblechart, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
             datasets: [{
@@ -139,6 +139,8 @@ function appendAttractionsData(data) {
                             'class',
                             'material-symbols-outlined',
                         );
+                        arraychart[parseInt(splitdate[1]) - 1] = " ";
+                  
                     }
                     icon.onclick = function (id) {
                         //   console.log(id.target.id);
