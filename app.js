@@ -113,15 +113,6 @@ app.get('/map', function (req, res) {
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
-
-app.get('/cities', function (req, res) {
-  session = req.session;
-  if (session.userid) {
-    console.log(session.userid)
-    res.render("cities.ejs", { 'userid': session.userid, 'username': session.username })
-  } else
-    res.sendFile('views/login.html', { root: __dirname })
-})
 app.get('/history', function (req, res) {
   session = req.session;
   if (session.userid) {
@@ -130,7 +121,15 @@ app.get('/history', function (req, res) {
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
-
+/*
+app.get('/cities', function (req, res) {
+  session = req.session;
+  if (session.userid) {
+    console.log(session.userid)
+    res.render("cities.ejs", { 'userid': session.userid, 'username': session.username })
+  } else
+    res.sendFile('views/login.html', { root: __dirname })
+})
 app.get('/my-attractions', function (req, res) {
   session = req.session;
   if (session.userid) {
@@ -138,7 +137,7 @@ app.get('/my-attractions', function (req, res) {
     res.render("my-attractions.ejs", { 'userid': session.userid, 'username': session.username })
   } else
     res.sendFile('views/login.html', { root: __dirname })
-})
+})*/
 
 app.get('/city', function (req, res) {
   session = req.session;

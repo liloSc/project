@@ -46,7 +46,7 @@ city = "Berlin";
 markerBerlin.bindPopup("<div style='font-family:Gill Sans'>You have visited " + city + "<br/><a href='/city?place=" + city + "'>Overview</a></div>");
 */
 
-/*let isStart = null;
+let isStart = null;
 let path = null;
 let accumulatedDistance = 0;
 let currentMarker = null;
@@ -59,25 +59,30 @@ const trackOptions = {
   timeout: MAX_NEW_POSITION_MILLISECOND,
 };
 
-L.tileLayer(
-  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+//L.tileLayer(
+// "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
   {
-    attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: "mapbox/streets-v11",
+    //  id: "mapbox/streets-v11",
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
+   /* attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+ , 
+   
     tileSize: 512,
     zoomOffset: -1,
     accessToken:
       "pk.eyJ1IjoibTQxaGlnaHdheSIsImEiOiJja295ZjQya2wwaTkxMnFtY203Z21wNjhzIn0.uF1S6TqlDfW7wmQ17Kp4NQ",
-  }
-).addTo(map);*/
+ */ }
+).addTo(map);
 
 
-/*
+
 
 const startTracking = () => {
-  if(!navigator.geolocation) {
+  if (!navigator.geolocation) {
     logConsole.textContent = 'Geolocation is not supported by your browser';
   } else {
     logConsole.textContent = 'Locating ...';
@@ -90,7 +95,7 @@ const startTracking = () => {
 const updateMap = (event) => {
 
   const { latitude, longitude, timestamp, accuracy, altitude, altitudeAccuracy, heading, speed } = event.detail;
-  
+
   report(`2. Received lat: ${latitude} | lng: ${longitude} | accuracy: ${accuracy} | altitude: ${altitude} | altitudeAccuracy ${altitudeAccuracy} | heading: ${heading} | speed: ${speed} | timestamp: ${timestamp}`);
 
   drawNewSegment(event.detail)
@@ -99,14 +104,14 @@ const updateMap = (event) => {
 }
 
 const drawNewSegment = (detail) => {
-  
+
   const { latitude, longitude } = detail;
 
   return new Promise((resolve) => {
     if (path == null) {
 
       path = L.polyline([
-        [ latitude, longitude ],
+        [latitude, longitude],
       ], {
         color: '#fbc531',
         bubblingMouseEvents: true
@@ -172,7 +177,7 @@ const success = (position) => {
   const { latitude, longitude } = position.coords;
   const timestamp = (new Date(Date.now())).toISOString();
 
-  report( `1. Detected at ${timestamp}`);
+  report(`1. Detected at ${timestamp}`);
 
   createNewEvent(latitude, longitude, timestamp);
 }
@@ -224,4 +229,3 @@ const round = (num, places) => {
 
 document.querySelector("#tracker")
   .addEventListener("GEO_EVENT", updateMap);
-  */
