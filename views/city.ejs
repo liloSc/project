@@ -1,7 +1,7 @@
 <div style="margin:20px">
     <div class="section">
         <div id="imageCity"></div>
-      <!--  <img src="../resources/paris.jpg" alt="Paris" style="width:200px;height:auto;border-radius: 50%;">-->
+        <!--  <img src="../resources/paris.jpg" alt="Paris" style="width:200px;height:auto;border-radius: 50%;">-->
         <div class="text">
             <h3 style=" font-size: 2em; font-weight: bold;" id="place"></h3>
 
@@ -12,12 +12,12 @@
             <a class="btn btn-dark btn-sm" id="buttonRoute">See Route</a>
         </div>
         <script>
-          
+
 
             // Adapted from examples on the Querystring homepage.
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
-            const place = urlParams.get('place') 
+            const place = urlParams.get('place')
             // console.log("PLACE IS " + place);
             document.getElementById('place').innerHTML = place;
 
@@ -26,63 +26,28 @@
 
             var sectionContainer = document.getElementById("imageCity");
             var image = document.createElement("img");
-            image.src = "../resources/"+place+".jpg";
+            image.src = "../resources/" + place + ".jpg";
             image.setAttribute(
                 'style',
                 'width:200px;height:auto;border-radius: 50%;',
             );
             sectionContainer.appendChild(image);
-          
+
         </script>
     </div>
 
     <div style="margin-left: 40px;">Attractions:</div>
 
     <div id="loadAttractions"> </div>
-    <div style="width:300px">
-        <canvas id="myChart"></canvas>
+   <!-- <div style="width:300px">
+        <canvas id="chartexample"></canvas>
+    </div>-->
+    <div style="width:400px">
+        <canvas id="bubblechart"></canvas>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="./js/get-attractions.js"></script>
     <script src="http://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-        const ctx = document.getElementById('myChart');
-        ctx.width = 100;
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6'],
-                datasets: [{
-                    label: 'Elevation',
-                    data: [12, 19, 30, 50, 20, 30], //Height Data
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-   /*     new Chart(ctx, {
-                                type: 'bar',
-                      data: [12, 19, 3, 5, 2, 3],
-                      options: {
-                        scales: {
-                          y: {
-                            beginAtZero: true
-                          }
-                        }
-                      },
-                            });*/
-    </script>
-    <style>
-
-
-
-    </style>
 </div>

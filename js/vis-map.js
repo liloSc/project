@@ -6,7 +6,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-
+/*
 var marker = L.marker([51.5, -0.09]).addTo(map);
 
 var circle = L.circle([51.508, -0.11], {
@@ -21,7 +21,7 @@ var polygon = L.polygon([
     [51.509, -0.08],
     [51.503, -0.06],
     [51.51, -0.047]
-]).addTo(map);
+]).addTo(map);*/
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -32,15 +32,9 @@ $.getJSON('/get-path?city=' + city, function (data) {
 
     // zoom the map to the polyline
     map.fitBounds(polyline.getBounds());
-
-    var array1 = data.path;
-    var index = 0;
     for (datapoint of data.path) {
-
-     //   var marker =
-         L.marker([datapoint[0],
-        array1[index][1]]).addTo(map);
-        index++
+        L.marker([datapoint[0],
+        datapoint[1]]).addTo(map);
     }
 
 })
