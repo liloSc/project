@@ -57,7 +57,7 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(expressLayouts)
-app.set('layout', './layouts/base-layout.ejs')
+app.set('layout', './base-layout.ejs')
 
 
 /*********************************/
@@ -126,7 +126,7 @@ app.get('/history', function (req, res) {
   session = req.session;
   if (session.userid) {
     console.log(session.userid)
-    res.render("overview.ejs", { 'userid': session.userid, 'username': session.username })
+    res.render("history.ejs", { 'userid': session.userid, 'username': session.username })
   } else
     res.sendFile('views/login.html', { root: __dirname })
 })
