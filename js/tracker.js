@@ -1,4 +1,3 @@
-
 //Initialize Map
 //Step 1: create a map
 let map = L.map("tracker").setView([48.856108562784534, 2.3518447120625594], 5);
@@ -8,12 +7,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-/*var data = "alex@alex.com";
-const array = data.split("@");*/
-
-console.log(currentuser);
-//Load Data
-//fetch('/data/' + array[0] + '_cities.json')
+//Load Data from the current user
 fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
   .then(function (response) {
     return response.json();
@@ -24,9 +18,6 @@ fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
   .catch(function (err) {
     console.log('error: ' + err);
   });
-
-
-// console.log(datatoString)
 
 function initiateCities(data) {
 
@@ -54,13 +45,6 @@ const trackOptions = {
   maximumAge: MAX_CACHE_AGE_MILLISECOND,
   timeout: MAX_NEW_POSITION_MILLISECOND,
 };
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-  {
-    maxZoom: 18,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }
-).addTo(map);
 
 
 const startTracking = () => {

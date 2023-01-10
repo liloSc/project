@@ -13,12 +13,12 @@
 
             <a class="btn btn-dark btn-sm" id="buttonRoute">See Route</a>
 
-      
+
             </h1>
         </div>
         <script>
             var currentuser = "<%= userid %>"
-           // console.log(currentuser)
+            // console.log(currentuser)
 
             // Adapted from examples on the Querystring homepage.
             const queryString = window.location.search;
@@ -46,6 +46,49 @@
 
     <div id="loadAttractions"> </div>
 
+    <br />
+    <br />
+    
+    <!-- Button trigger modal -->
+   <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addattraction"
+        onclick="dialogAttraction()">
+        Add
+    </button>-->
+
+    <!-- Modal -->
+   <!-- <div class="modal fade" id="addattraction" tabindex="-1" role="dialog" aria-labelledby="addattractionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addattractionLabel">Add Attraction to list</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" >
+                    <form>
+                      <div class="form-group">
+                        <label class="col-form-label">Attraction name:</label>
+                        <input type="text" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label  class="col-form-label">Longitude:</label>
+                        <input type="text" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label  class="col-form-label">Latitude:</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </form>
+                  </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                    <button id="confirmAddAttraction" type="button" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
     <div style="width:400px">
         <canvas id="bubblechart"></canvas>
     </div>

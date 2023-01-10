@@ -1,6 +1,6 @@
 # Discover
 ## (Intro)
-The goal of the application is to facilitate the exploration of a new city. 
+Discover is a web-based application designed to help travelers discover new places. It is a travel-tracking app providing users with an easy way to keep track of their travels and explore new places. With this app, users can check out different attractions in the places they visit, find the best routes and get an overview of all the cities they have explored. They can also live track their progress and keep a record of their trips.
 
 ## Mockup
 https://www.figma.com/file/6nMtKI3g93o8Li40E2X98k/WebDevProject?node-id=0%3A1&t=BInmQ5cbmZhQSk63-1
@@ -14,10 +14,8 @@ https://github.com/liloSc/webdevproject.git
 npm install
 node app.js 
 
-
-
 After starting, it should look like this: 
-[Insert Screenshot]
+
 
 ## On phone
 https://prowe214.medium.com/tip-how-to-view-localhost-web-apps-on-your-phone-ad6b2c883a7c
@@ -27,7 +25,9 @@ https://prowe214.medium.com/tip-how-to-view-localhost-web-apps-on-your-phone-ad6
 4. Open Browser on Smartphone: "<IPADRESS from Laptop>:<Portnumer>"
 5. Now you should see the Page on your Smartphone
 
-## Basic Gameplay
+## User Case
+1. Login Page
+
 
 
 ## Technologies used
@@ -38,16 +38,17 @@ https://prowe214.medium.com/tip-how-to-view-localhost-web-apps-on-your-phone-ad6
 
 
 ##  Functionalities
-- [] Overview of the map
-- [] Saving route/paths
-- [] Visualizing the discovered area on the map
-- [] Progressbar of the discovered 
-- [] Checklist of Discovered Tourist Attractions
-- [] Automatically/ Possibility checking when nearby Attraction 
-- [] Possibility of editing the checklist
+- [x] Overview of the map
+- [x] Progressbar of the discovered 
+- [x] Checklist of Discovered Tourist Attractions
+- [x] Automatically/ Possibility checking when nearby Attraction 
+- [x] Possibility of editing the checklist
 
 
 ## What did you learn?
+- Integration of Leaflet
+- Integration of Bootstrap
+
 
 ### Expected challenges
 - Use of GPS Tracking
@@ -56,10 +57,16 @@ https://prowe214.medium.com/tip-how-to-view-localhost-web-apps-on-your-phone-ad6
 - Use of GPS Tracking
 
 ## Future Features
-- [ ] 
+- [] Saving route/paths
+- [] Visualizing the discovered area on the map
+- [] Store real-time recordings
+- [] Responsive design
+- [] Allow users to create an account
+- [] Allow users to create their own content
+- [] Allow users to modify attractions to their own preferences
+- [] Calculate the most efficient route
+- [] Modify the real-time tracker
 
-# Credits
--
 
 ## Resources
 https://de.freepik.com/vektoren-kostenlos/pariser-konzeptillustration_9786868.htm#page=2&query=Paris&position=12&from_view=search&track=sph

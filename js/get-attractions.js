@@ -1,13 +1,7 @@
 var listCities = [];
 
-/*var data = "alex@alex.com";
-const array = data.split("@");
-fetch('/data/' + array[0] + '_cities.json')*/
 //Load Data
-//console.log("currentuser");
-//console.log(currentuser);
-
-fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
+fetch('/data/' + currentuser.split("@")[0] + '_cities.json')
     .then(function (response) {
         return response.json();
     })
@@ -21,26 +15,6 @@ fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
     });
 var arraychart = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 function insertVisualization() {
-    /*  const ctx = document.getElementById('chartexample');
-      ctx.width = 100;
-      new Chart(ctx, {
-          type: 'line',
-          data: {
-              labels: ['1', '2', '3', '4', '5', '6'],
-              datasets: [{
-                  label: 'Elevation',
-                  data: [12, 19, 30, 50, 20, 30], //Height Data
-                  borderWidth: 1
-              }]
-          },
-          options: {
-              scales: {
-                  y: {
-                      beginAtZero: true
-                  }
-              }
-          }
-      });*/
     //Bubble Chart
     const bubblechart = document.getElementById('bubblechart');
 
@@ -71,12 +45,14 @@ function updateCities(dataUserCities) {
         listCities.push(d["cityname"]);
 
     })
-    fetch('/data/'+currentuser.split("@")[0]+'_attractions.json')
+    fetch('/data/' + currentuser.split("@")[0] + '_attractions.json')
         .then(function (response) {
             return response.json();
         })
         .then(function (dataattractions) {
             appendAttractionsData(dataattractions);
+            
+            //   document.getElementById("confirmAddAttraction").onclick = addAttraction(dataattractions)
         })
         .catch(function (err) {
             console.log('error: ' + err);
@@ -84,6 +60,9 @@ function updateCities(dataUserCities) {
 }
 
 function appendAttractionsData(data) {
+  /*  document.getElementById("confirmAddAttraction").addEventListener('click', function () {
+        addAttraction(data);
+    });*/
     var containerAttractions = document.getElementById("loadAttractions");
     var containerProgress = document.getElementById("loadProgress");
     var containerProgressbar = document.getElementById("loadProgressbar");
@@ -101,7 +80,6 @@ function appendAttractionsData(data) {
 
                 //Iterate through attractions in the city
                 for (var i = 0; i < lengthAttractions; i++) {
-                    //  console.log(i)
                     var divAttraction = document.createElement("div");
                     divAttraction.setAttribute(
                         'style',
@@ -142,8 +120,8 @@ function appendAttractionsData(data) {
                             'class',
                             'material-symbols-outlined',
                         );
-                     
-                  
+
+
                     }
                     icon.onclick = function (id) {
                         //   console.log(id.target.id);
@@ -224,7 +202,7 @@ function changeData(data, e) {
         listCities.forEach(c => {
             if (c == place)
                 //   listattractions.forEach(a => {
-                for (var i = 0; i < Object.keys(d["cities"]["Paris"]).length; i++) {
+                for (var i = 0; i < Object.keys(d["cities"][c]).length; i++) {
                     var currentAttraction = i + 1;
                     var a = "attraction" + currentAttraction;
                     let date = new Date().toLocaleDateString("de-DE");
@@ -246,3 +224,31 @@ function changeData(data, e) {
 
     )
 }
+/*
+function dialogAttraction() {
+    $(document).ready(function () {
+        $('.modal').modal('show');
+    });
+}
+
+function addAttraction(data) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const c = urlParams.get('place')
+
+    data.forEach(d => {
+        //TODO: Only the user, how to get current userid??
+        //   if (d.userid == userid) {
+        var currentAttraction = Object.keys(d["cities"][c]).length + 1;
+        var a = "attraction" + currentAttraction;
+        d["cities"][c][a]["name"] = "test1";
+        d["cities"][c][a]["visited"] = "no";
+        d["cities"][c][a]["longitude"] = "test";
+        d["cities"][c][a]["latitude"] = "test";
+        d["cities"][c][a]["visitdate"] = " ";
+        console.log(data)
+        // saveData(data);
+    }
+
+    )
+}*/
