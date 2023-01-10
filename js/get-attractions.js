@@ -139,7 +139,7 @@ function appendAttractionsData(data) {
                             'class',
                             'material-symbols-outlined',
                         );
-                        arraychart[parseInt(splitdate[1]) - 1] = " ";
+                     
                   
                     }
                     icon.onclick = function (id) {
