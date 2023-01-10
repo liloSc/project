@@ -4,7 +4,10 @@ var listCities = [];
 const array = data.split("@");
 fetch('/data/' + array[0] + '_cities.json')*/
 //Load Data
-fetch('/data/' + "lilo" + '_cities.json')
+//console.log("currentuser");
+//console.log(currentuser);
+
+fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
     .then(function (response) {
         return response.json();
     })
@@ -68,7 +71,7 @@ function updateCities(dataUserCities) {
         listCities.push(d["cityname"]);
 
     })
-    fetch('/data/attractions.json')
+    fetch('/data/'+currentuser.split("@")[0]+'_attractions.json')
         .then(function (response) {
             return response.json();
         })
@@ -213,6 +216,7 @@ function changeData(data, e) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const place = urlParams.get('place')
+    console.log(data);
     var indexChange = 0;
     data.forEach(d => {
         //TODO: Only the user, how to get current userid??

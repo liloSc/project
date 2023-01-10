@@ -11,10 +11,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 /*var data = "alex@alex.com";
 const array = data.split("@");*/
 
-
+console.log(currentuser);
 //Load Data
 //fetch('/data/' + array[0] + '_cities.json')
-fetch('/data/' + "lilo" + '_cities.json')
+fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
   .then(function (response) {
     return response.json();
   })

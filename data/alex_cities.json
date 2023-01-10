@@ -5,5 +5,12 @@
         "cityname": "Paris",
         "longitude": 48.856108562784534,
         "latitude": 2.3518447120625594
+    },
+    {
+        "userid": "alex@alex.com",
+        "country": "Ukraine",
+        "cityname": "Kiew",
+        "longitude": 50.419158584430434, 
+        "latitude": 30.531104753948235
     }
 ]

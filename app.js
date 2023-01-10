@@ -71,8 +71,8 @@ app.get('/saveData', (req, res) => {
   var datatoString = req._parsedOriginalUrl.query;
   datatoString = datatoString.replaceAll("%22", "\"");
   datatoString = datatoString.replaceAll("%20", " ");
-
-  fs.writeFile('./data/attractions.json', datatoString, err => {
+  
+  fs.writeFile('./data/'+req.session.userid.split("@")[0]+'_attractions.json', datatoString, err => {
     if (err) {
       throw err;
     } else {
@@ -103,7 +103,7 @@ app.get('/checkPosition', (req, res) => {
 })
 
 app.get("/get-path", visPathController.getPath);
-module.exports = app; 
+module.exports = app;
 
 app.get('/map', function (req, res) {
   session = req.session;

@@ -2,7 +2,7 @@ var overview = document.getElementById("overview");
 var listCities = [];
 
 
-fetch('/data/' + "lilo" + '_cities.json')
+fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
     .then(function (response) {
         return response.json();
     })
@@ -29,7 +29,7 @@ function setupSite() {
 
         var counterProgress = 0;
         var maximumAttractions = 0;
-        fetch('/data/attractions.json')
+        fetch('/data/'+currentuser.split("@")[0]+'_attractions.json')
             .then(function (response) {
                 return response.json();
             })
