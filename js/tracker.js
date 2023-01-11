@@ -19,15 +19,23 @@ fetch('/data/' +currentuser.split("@")[0] + '_cities.json')
     console.log('error: ' + err);
   });
 
+  var newIcon = L.icon({
+    iconUrl: 'https://icon-library.com/images/custom-icon-for-google-earth/custom-icon-for-google-earth-20.jpg',
+  
+    iconSize:     [35, 45], // size of the icon
+    iconAnchor:   [18, 45], // point of the icon which will correspond to marker's location
+  });
+
 function initiateCities(data) {
 
   data.forEach(d => {
-    var marker = L.marker([d["longitude"], d["latitude"]]).addTo(map);
+    var marker = L.marker([d["longitude"], d["latitude"]],{icon:newIcon}).addTo(map);
     marker.bindPopup("<div style='font-family:Gill Sans'>You have visited " + d["cityname"] + "<br/><a href='/city?place=" + d["cityname"] + "'>Overview</a></div>");
 
   })
 
 }
+
 /**
  * Code from https://medium.com/geekculture/make-a-running-tracker-with-geolocation-api-8b2ac541196e
  */
