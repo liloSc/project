@@ -12,5 +12,12 @@
         "cityname": "Kyiv",
         "longitude": 50.419158584430434, 
         "latitude": 30.531104753948235
+    },
+    {
+        "userid": "alex@alex.com",
+        "country": "Austria",
+        "cityname": "Wien",
+        "longitude": 48.197587457762054, 
+        "latitude": 16.370979028061367
     }
 ]
